@@ -2,10 +2,10 @@ import {Button, Typography} from "@material-tailwind/react";
 
 export default function Hero() {
   return (
-    <div className="flex items-center justify-center ">
+    <div className="relative flex items-center justify-center">
       <img
         src="/purple-geometric.jpg"
-        className="absolute hidden object-fill w-full h-full -z-40 opacity-10 -top-0 lg:flex"
+        className="absolute object-fill w-full h-full max-sm:bg-purple-500 -z-40 opacity-10 -top-0 lg:flex"
         alt=""
       />
       <div className="flex flex-col-reverse items-center justify-between p-4 py-6 lg:flex-row lg:px-24">

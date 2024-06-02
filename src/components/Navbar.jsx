@@ -6,7 +6,7 @@ import {
   Button,
   IconButton,
 } from "@material-tailwind/react";
-import {NavLink} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 
 export default function NavBar() {
   const navClass = ({isActive, isPending}) =>
@@ -51,27 +51,30 @@ export default function NavBar() {
   );
 
   return (
-    <Navbar className="w-full px-4 py-2 mx-auto lg:mt-4 lg:px-8 lg:py-4">
+    <Navbar className="w-full px-4 mx-auto lg:px-8 ">
       <div className="container flex items-center justify-between mx-auto text-blue-gray-900">
         <Typography
           as="a"
           href="#"
-          className="mr-4 cursor-pointer py-1.5 font-bold flex justify-center items-center text-2xl gap-2 text-purple-300"
+          className="mr-4 cursor-pointer py-1.5 font-bold flex justify-center items-center text-2xl gap-2 text-purple-500"
         >
           <img src="/couple.png"></img>
           TrueBond
         </Typography>
         <div className="hidden lg:block">{navList}</div>
-        <div className="flex items-center gap-x-1">
-          <Button
-            variant="gradient"
-            size="sm"
-            color="purple"
-            className="hidden lg:inline-block"
-          >
-            <span>Login</span>
-          </Button>
-        </div>
+        <Link to="/login">
+          <div className="flex items-center gap-x-1">
+            <Button
+              variant="gradient"
+              size="sm"
+              color="purple"
+              className="hidden lg:inline-block"
+            >
+              <span>Login</span>
+            </Button>
+          </div>
+        </Link>
+
         <IconButton
           variant="text"
           className="w-6 h-6 ml-auto text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
@@ -118,7 +121,7 @@ export default function NavBar() {
               <span>Log In</span>
             </Button>
             <Button fullWidth variant="gradient" size="sm" className="">
-              <span>Sign in</span>
+              <span>Sign Up</span>
             </Button>
           </div>
         </div>
