@@ -1,7 +1,6 @@
 import {Card, Input, Button, Typography} from "@material-tailwind/react";
 import {Link} from "react-router-dom";
 import {FcGoogle} from "react-icons/fc";
-import {FaGoogle} from "react-icons/fa";
 
 export function Login() {
   return (
@@ -57,7 +56,7 @@ export function Login() {
             <Button color="purple" className="">
               <span className="flex items-center justify-center gap-2">
                 <FcGoogle className="text-xl" />
-                Login with Google
+                Continue with Google
               </span>
             </Button>
           </div>
