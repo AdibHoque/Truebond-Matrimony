@@ -1,12 +1,14 @@
-import React from "react";
+import React, {useContext} from "react";
 import {
   Navbar,
   MobileNav,
   Typography,
   Button,
   IconButton,
+  Spinner,
 } from "@material-tailwind/react";
 import {Link, NavLink} from "react-router-dom";
+import {AuthContext} from "../AuthProvider";
 
 export default function NavBar() {
   const navClass = ({isActive, isPending}) =>
@@ -49,6 +51,7 @@ export default function NavBar() {
       </li>
     </ul>
   );
+  const {user, loading} = useContext(AuthContext);
 
   return (
     <Navbar className="w-full px-4 mx-auto lg:px-8 ">
@@ -62,18 +65,37 @@ export default function NavBar() {
           TrueBond
         </Typography>
         <div className="hidden lg:block">{navList}</div>
-        <Link to="/login">
-          <div className="flex items-center gap-x-1">
-            <Button
-              variant="gradient"
-              size="sm"
+
+        <div className="flex items-center gap-x-1">
+          {loading ? (
+            <Spinner
               color="purple"
-              className="hidden lg:inline-block"
-            >
-              <span>Login</span>
-            </Button>
-          </div>
-        </Link>
+              className="h-10 w-10 hidden lg:inline-block"
+            />
+          ) : user ? (
+            <Link to="/dashboard">
+              <Button
+                variant="gradient"
+                size="sm"
+                color="purple"
+                className="hidden lg:inline-block"
+              >
+                <span>Dashboard</span>
+              </Button>
+            </Link>
+          ) : (
+            <Link to="/login">
+              <Button
+                variant="gradient"
+                size="sm"
+                color="purple"
+                className="hidden lg:inline-block"
+              >
+                <span>Login</span>
+              </Button>
+            </Link>
+          )}
+        </div>
 
         <IconButton
           variant="text"
@@ -117,12 +139,33 @@ export default function NavBar() {
         <div className="container mx-auto text-black">
           {navList}
           <div className="flex items-center gap-x-1">
-            <Button fullWidth variant="text" size="sm" className="">
-              <span>Log In</span>
-            </Button>
-            <Button fullWidth variant="gradient" size="sm" className="">
-              <span>Sign Up</span>
-            </Button>
+            {loading ? (
+              <Spinner color="purple" className="h-10 w-10" />
+            ) : user ? (
+              <Link to="/dashboard" className="w-full">
+                <Button
+                  variant="gradient"
+                  size="sm"
+                  color="purple"
+                  className=""
+                  fullWidth
+                >
+                  <span>Dashboard</span>
+                </Button>
+              </Link>
+            ) : (
+              <Link to="/login" className="w-full">
+                <Button
+                  variant="gradient"
+                  size="sm"
+                  color="purple"
+                  className=""
+                  fullWidth
+                >
+                  <span>Login</span>
+                </Button>
+              </Link>
+            )}
           </div>
         </div>
       </MobileNav>
