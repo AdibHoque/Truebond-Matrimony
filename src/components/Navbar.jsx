@@ -30,22 +30,18 @@ export default function NavBar() {
         </NavLink>
       </li>
       <li>
-        <NavLink className={navClass} to="/about">
+        <NavLink className={navClass} to="/biodatas">
           Biodatas
         </NavLink>
       </li>
       <li>
-        <NavLink className={navClass} to="/services">
+        <NavLink className={navClass} to="/about">
           About Us
         </NavLink>
       </li>
+
       <li>
-        <NavLink className={navClass} to="/pages">
-          Pages
-        </NavLink>
-      </li>
-      <li>
-        <NavLink className={navClass} to="/blog">
+        <NavLink className={navClass} to="/contact">
           Contact Us
         </NavLink>
       </li>

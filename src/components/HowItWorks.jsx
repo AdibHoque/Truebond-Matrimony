@@ -8,7 +8,7 @@ export default function HowItWorks() {
       <div className="grid grid-cols-1 px-4 mb-6 lg:grid-cols-3 lg:px-24">
         <div className="flex flex-col items-center justify-center">
           <img src="/Signup-rafiki.svg" className="-mt-6 max-w-96" alt="" />
-          <h1 className="-mt-10 text-2xl font-bold text-purple-500">
+          <h1 className="-mt-12 text-3xl font-bold text-purple-500">
             Create a Profile
           </h1>
           <Typography
@@ -22,7 +22,7 @@ export default function HowItWorks() {
         </div>
         <div className="flex flex-col items-center justify-center">
           <img src="/connect-rafiki.svg" className="-mt-6 max-w-96" alt="" />
-          <h1 className="-mt-10 text-2xl font-bold text-purple-500">
+          <h1 className="-mt-12 text-3xl font-bold text-purple-500">
             Search & Connect
           </h1>
           <Typography
@@ -36,7 +36,7 @@ export default function HowItWorks() {
         </div>
         <div className="flex flex-col items-center justify-center">
           <img src="/face-rafiki.svg" className="-mt-6 max-w-96" alt="" />
-          <h1 className="-mt-10 text-2xl font-bold text-purple-500">
+          <h1 className="-mt-12 text-3xl font-bold text-purple-500">
             Arrange Meetings
           </h1>
           <Typography
