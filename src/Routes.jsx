@@ -7,6 +7,7 @@ import {SignUp} from "./pages/SignUp";
 import Biodatas from "./pages/Biodatas";
 import Dashboard from "./pages/Dashboard";
 import UserHome from "./components/dashboard/user/UserHome";
+import PrivateRoute from "./PrivateRoute";
 
 const routes = createBrowserRouter([
   {
@@ -34,11 +35,19 @@ const routes = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <Dashboard></Dashboard>,
+    element: (
+      <PrivateRoute>
+        <Dashboard></Dashboard>
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "home",
-        element: <UserHome></UserHome>,
+        element: (
+          <PrivateRoute>
+            <UserHome></UserHome>
+          </PrivateRoute>
+        ),
       },
     ],
   },
