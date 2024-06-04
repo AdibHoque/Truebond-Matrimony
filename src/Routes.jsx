@@ -5,6 +5,8 @@ import ErrorPage from "./pages/ErrorPage";
 import {Login} from "./pages/Login";
 import {SignUp} from "./pages/SignUp";
 import Biodatas from "./pages/Biodatas";
+import Dashboard from "./pages/Dashboard";
+import UserHome from "./components/dashboard/user/UserHome";
 
 const routes = createBrowserRouter([
   {
@@ -27,6 +29,16 @@ const routes = createBrowserRouter([
       {
         path: "/biodatas",
         element: <Biodatas></Biodatas>,
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: <Dashboard></Dashboard>,
+    children: [
+      {
+        path: "home",
+        element: <UserHome></UserHome>,
       },
     ],
   },
