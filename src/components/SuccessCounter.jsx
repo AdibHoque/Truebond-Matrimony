@@ -6,7 +6,7 @@ import {GiBigDiamondRing} from "react-icons/gi";
 export default function SuccessCounter() {
   return (
     <>
-      <div className="my-8 px-4 lg:px-24">
+      <div className="my-12 px-4 lg:px-24">
         <SectionTitle title="Success Counter"></SectionTitle>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 my-8 gap-4 gap-y-10 lg:divide-x-2">
           <div className="flex gap-4 justify-center items-center">

@@ -1,0 +1,26 @@
+[
+  {
+    "selfBiodataId": 1,
+    "partnerBiodataId": 14,
+    "coupleImage": "https://example.com/couple1.jpg",
+    "successStory": "We are so grateful for this platform. We met here and instantly connected. Now, we are happily married and looking forward to our future together!",
+    "reviewRating": 5,
+    "marriageDate": "2023-04-15"
+  },
+  {
+    "selfBiodataId": 3,
+    "partnerBiodataId": 8,
+    "coupleImage": "https://example.com/couple2.jpg",
+    "successStory": "Thank you for bringing us together! We were looking for the right match for a long time, and this website made it possible. Our wedding was beautiful, and we are excited to start this new chapter of our lives.",
+    "reviewRating": 4.5,
+    "marriageDate": "2023-06-20"
+  },
+  {
+    "selfBiodataId": 11,
+    "partnerBiodataId": 18,
+    "coupleImage": "https://example.com/couple3.jpg",
+    "successStory": "We can't express how happy we are! This website helped us find each other. Our journey has been amazing, and we look forward to spending the rest of our lives together.",
+    "reviewRating": 5,
+    "marriageDate": "2023-08-10"
+  }
+]
