@@ -12,6 +12,7 @@ import {
   FaDatabase,
   FaHeart,
   FaHome,
+  FaHouseUser,
   FaPowerOff,
   FaUser,
   FaUserCheck,
@@ -25,11 +26,11 @@ import {AuthContext} from "../AuthProvider";
 
 export default function Dashboard() {
   const {user, logOut} = useContext(AuthContext);
-  const isAdmin = true;
+  const isAdmin = false;
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (user && !isAdmin) {
+    if (user) {
       navigate("/dashboard/home");
     }
   }, [user, navigate, isAdmin]);
@@ -47,6 +48,14 @@ export default function Dashboard() {
               </Typography>
             </div>
             <List>
+              <NavLink to="/dashboard/home" className={navClass}>
+                <ListItem>
+                  <ListItemPrefix>
+                    <FaHouseUser className="w-5 h-5" />
+                  </ListItemPrefix>
+                  Dashboard Home
+                </ListItem>
+              </NavLink>
               <NavLink to="/admindashboard" className={navClass}>
                 <ListItem>
                   <ListItemPrefix>
@@ -117,6 +126,14 @@ export default function Dashboard() {
               </Typography>
             </div>
             <List>
+              <NavLink to="/dashboard/home" className={navClass}>
+                <ListItem>
+                  <ListItemPrefix>
+                    <FaHouseUser className="w-5 h-5" />
+                  </ListItemPrefix>
+                  Dashboard Home
+                </ListItem>
+              </NavLink>
               <NavLink to="/editbiodata" className={navClass}>
                 <ListItem>
                   <ListItemPrefix>

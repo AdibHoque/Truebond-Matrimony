@@ -8,6 +8,7 @@ import Biodatas from "./pages/Biodatas";
 import Dashboard from "./pages/Dashboard";
 import UserHome from "./components/dashboard/user/UserHome";
 import PrivateRoute from "./PrivateRoute";
+import BiodataDetails from "./pages/BiodataDetails";
 
 const routes = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const routes = createBrowserRouter([
       {
         path: "/biodatas",
         element: <Biodatas></Biodatas>,
+      },
+      {
+        path: "/biodata",
+        element: <BiodataDetails></BiodataDetails>,
       },
     ],
   },
