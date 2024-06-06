@@ -8,9 +8,20 @@ import {
   Tooltip,
   Button,
 } from "@material-tailwind/react";
+import {PiCrownSimpleFill} from "react-icons/pi";
+import {Link} from "react-router-dom";
 
 export default function BioCard({data}) {
-  const {name, biodataId, gender, age, occupation, permanentDivision} = data;
+  const {
+    _id,
+    name,
+    biodataId,
+    gender,
+    age,
+    occupation,
+    permanentDivision,
+    premium,
+  } = data;
   return (
     <Card className="max-w-[24rem] overflow-hidden mx-auto">
       <CardHeader
@@ -25,9 +36,25 @@ export default function BioCard({data}) {
         />
       </CardHeader>
       <CardBody>
-        <Typography variant="h5" color="purple">
-          {name}
-        </Typography>
+        <div className="flex justify-between items-center">
+          <Typography variant="h5" color="purple">
+            {name}
+          </Typography>
+          {premium ? (
+            <Button
+              variant="gradient"
+              color="purple"
+              size="sm"
+              className="flex  items-center gap-3"
+            >
+              <PiCrownSimpleFill />
+              PREMIUM
+            </Button>
+          ) : (
+            ""
+          )}
+        </div>
+
         <Typography variant="lead" color="gray" className="text-xs font-normal">
           Biodata ID-{biodataId}
         </Typography>
@@ -57,7 +84,7 @@ export default function BioCard({data}) {
         </Typography>
       </CardBody>
       <CardFooter className="pt-0">
-        <a href="#" className="inline-block">
+        <Link to={`/biodata/${_id}`} className="inline-block">
           <Button
             size="sm"
             color="purple"
@@ -80,7 +107,7 @@ export default function BioCard({data}) {
               />
             </svg>
           </Button>
-        </a>
+        </Link>
       </CardFooter>
     </Card>
   );

@@ -33,8 +33,10 @@ const routes = createBrowserRouter([
         element: <Biodatas></Biodatas>,
       },
       {
-        path: "/biodata",
+        path: "/biodata/:id",
         element: <BiodataDetails></BiodataDetails>,
+        loader: ({params}) =>
+          fetch(`http://localhost:5000/biodatas?id=${params.id}`),
       },
     ],
   },

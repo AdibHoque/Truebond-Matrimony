@@ -50,7 +50,7 @@ export default function NavBar() {
   const {user, loading} = useContext(AuthContext);
 
   return (
-    <Navbar className="w-full px-4 mx-auto lg:px-8 ">
+    <Navbar className="w-full px-4 mx-auto lg:px-8">
       <div className="container flex items-center justify-between mx-auto text-blue-gray-900">
         <Typography
           as="a"
@@ -66,7 +66,7 @@ export default function NavBar() {
           {loading ? (
             <Spinner
               color="purple"
-              className="h-10 w-10 hidden lg:inline-block"
+              className="hidden w-10 h-10 lg:inline-block"
             />
           ) : user ? (
             <Link to="/dashboard">
@@ -136,7 +136,7 @@ export default function NavBar() {
           {navList}
           <div className="flex items-center gap-x-1">
             {loading ? (
-              <Spinner color="purple" className="h-10 w-10" />
+              <Spinner color="purple" className="w-10 h-10" />
             ) : user ? (
               <Link to="/dashboard" className="w-full">
                 <Button

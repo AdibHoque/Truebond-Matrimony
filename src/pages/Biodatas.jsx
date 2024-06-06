@@ -1,15 +1,28 @@
-import {useEffect, useState} from "react";
-import {Select, Option} from "@material-tailwind/react";
+import {Select, Option, Spinner} from "@material-tailwind/react";
 import BioCard from "../components/Card";
+import {useQuery} from "@tanstack/react-query";
 
 export default function Biodatas() {
-  const [data, setData] = useState([]);
+  const {
+    isPending,
+    isError,
+    error,
+    data: biodatas,
+  } = useQuery({
+    queryKey: ["biodatas"],
+    queryFn: async () => {
+      const res = await fetch("http://localhost:5000/biodatas");
+      return res.json();
+    },
+  });
 
-  useEffect(() => {
-    fetch("/biodata.json")
-      .then((data) => data.json())
-      .then((data) => setData(data));
-  }, []);
+  if (isPending) {
+    return <Spinner color="purple" className="h-16 w-16" />;
+  }
+
+  if (isError) {
+    return <p>{error.message}</p>;
+  }
   return (
     <>
       <div className="px-4 lg:px-24 flex flex-col lg:flex-row gap-4 justify-between">
@@ -41,8 +54,8 @@ export default function Biodatas() {
           </div>
         </div>
         <div className="">
-          <div className="grid w-full grid-cols-1 gap-4 px-4 mt-6 md:grid-cols-2 lg:px-24">
-            {data.slice(0, 6).map((data) => (
+          <div className="grid w-full grid-cols-1 gap-6 px-4 mt-6 md:grid-cols-2 lg:px-24 justify-between">
+            {biodatas.map((data) => (
               <BioCard key={data.biodataId} data={data}></BioCard>
             ))}
           </div>

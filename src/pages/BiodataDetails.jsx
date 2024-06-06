@@ -6,8 +6,34 @@ import {
   Button,
 } from "@material-tailwind/react";
 import {FaHeart, FaRegHeart} from "react-icons/fa";
+import {PiCrownSimpleFill} from "react-icons/pi";
+import {useLoaderData} from "react-router-dom";
 
 export default function BiodataDetails() {
+  const data = useLoaderData();
+  const {
+    biodataId,
+    gender,
+    name,
+    profileImage,
+    dob,
+    height,
+    weight,
+    age,
+    occupation,
+    race,
+    fathersName,
+    mothersName,
+    permanentDivision,
+    presentDivision,
+    expectedPartnerAge,
+    expectedPartnerHeight,
+    expectedPartnerWeight,
+    contactEmail,
+    mobileNumber,
+    premium,
+  } = data;
+
   const isPremium = true;
   // {
   //   "biodataId": 1,
@@ -45,11 +71,26 @@ export default function BiodataDetails() {
         />
       </CardHeader>
       <CardBody>
-        <Typography variant="h3" color="purple">
-          Ahmed Rahman
-        </Typography>
+        <div className="flex justify-between items-center">
+          <Typography variant="h3" color="purple">
+            {name}
+          </Typography>
+          {premium ? (
+            <Button
+              variant="gradient"
+              color="purple"
+              size="sm"
+              className="flex  items-center gap-3"
+            >
+              <PiCrownSimpleFill />
+              PREMIUM
+            </Button>
+          ) : (
+            ""
+          )}
+        </div>
         <Typography variant="lead" color="gray" className="text-xs font-normal">
-          Biodata ID-1
+          Biodata ID-{biodataId}
         </Typography>
         <Typography variant="h5" color="purple" className="mt-4">
           Complete Biodata
@@ -57,35 +98,35 @@ export default function BiodataDetails() {
         <div className="flex items-center justify-between">
           <Typography
             variant="lead"
-            color={"Male" == "Male" ? "blue" : "pink"}
+            color={gender == "Male" ? "blue" : "pink"}
             className="mt-3 font-normal"
           >
             <span className="font-medium text-blue-gray-900">Gender: </span>
-            Male
+            {gender}
           </Typography>
           <Typography variant="lead" color="gray" className="mt-3 font-normal">
             <span className="font-medium text-blue-gray-900">Age: </span>
-            30 (1990-05-15)
+            {`${age} (${dob})`}
           </Typography>
         </div>
         <div className="flex items-center justify-between">
           <Typography variant="lead" className="mt-3 font-normal">
             <span className="font-medium text-blue-gray-900">Height: </span>
-            5&apos;9
+            {height}
           </Typography>
           <Typography variant="lead" color="gray" className="mt-3 font-normal">
             <span className="font-medium text-blue-gray-900">Weight: </span>
-            70Kg
+            {weight}
           </Typography>
         </div>
         <div className="flex items-center justify-between">
           <Typography variant="lead" className="mt-3 font-normal">
             <span className="font-medium text-blue-gray-900">Occupation: </span>
-            Engineer
+            {occupation}
           </Typography>
           <Typography variant="lead" color="gray" className="mt-3 font-normal">
             <span className="font-medium text-blue-gray-900">Race: </span>
-            Bengali
+            {race}{" "}
           </Typography>
         </div>
         <div className="flex flex-wrap items-center justify-between gap-x-2">
@@ -93,13 +134,13 @@ export default function BiodataDetails() {
             <span className="font-medium text-blue-gray-900">
               Fathers Name:{" "}
             </span>
-            Mohammed Rahman
+            {fathersName}
           </Typography>
           <Typography variant="lead" color="gray" className="mt-3 font-normal">
             <span className="font-medium text-blue-gray-900">
               Mothers Name:{" "}
             </span>
-            Shirin Rahman
+            {mothersName}
           </Typography>
         </div>
         <div className="flex flex-wrap items-center justify-between gap-x-2">
@@ -107,13 +148,13 @@ export default function BiodataDetails() {
             <span className="font-medium text-blue-gray-900">
               Permanent Division:{" "}
             </span>
-            Chattogram
+            {permanentDivision}
           </Typography>
           <Typography variant="lead" color="gray" className="mt-3 font-normal">
             <span className="font-medium text-blue-gray-900">
               Present Division:{" "}
             </span>
-            Dhaka
+            {presentDivision}
           </Typography>
         </div>
         <Typography variant="h5" color="purple" className="mt-6">
@@ -122,15 +163,15 @@ export default function BiodataDetails() {
         <div className="flex items-center justify-between">
           <Typography variant="lead" className="mt-3 font-normal">
             <span className="font-medium text-blue-gray-900">Age: </span>
-            25-30
+            {expectedPartnerAge}
           </Typography>
           <Typography variant="lead" className="mt-3 font-normal">
             <span className="font-medium text-blue-gray-900">Height: </span>
-            5&apos;2-5&apos;6
+            {expectedPartnerHeight}
           </Typography>
           <Typography variant="lead" color="gray" className="mt-3 font-normal">
             <span className="font-medium text-blue-gray-900">Weight: </span>
-            50-60Kg
+            {expectedPartnerWeight}
           </Typography>
         </div>
         {isPremium ? (
@@ -143,7 +184,7 @@ export default function BiodataDetails() {
                 <span className="font-medium text-blue-gray-900">
                   Mobile Number:{" "}
                 </span>
-                017XXXXXXXX
+                {mobileNumber}
               </Typography>
               <Typography
                 variant="lead"
@@ -151,7 +192,7 @@ export default function BiodataDetails() {
                 className="mt-3 font-normal"
               >
                 <span className="font-medium text-blue-gray-900">Email: </span>
-                ahmed.rahman@example.com
+                {contactEmail}
               </Typography>
             </div>
           </div>
