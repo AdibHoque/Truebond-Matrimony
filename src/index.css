@@ -42,3 +42,21 @@
   background: purple;
   transition: 0.5s;
 }
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  height: 100%;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+.swiper-pagination-bullet-active {
+  background-color: rgb(200, 77, 200) !important;
+}

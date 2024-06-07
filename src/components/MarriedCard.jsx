@@ -12,7 +12,7 @@ import {
 export function MarriedCard({data}) {
   const {successStory, marriageDate, reviewRating} = data;
   return (
-    <Card className="w-full max-w-[26rem] shadow-lg mx-auto">
+    <Card className="w-full max-w-[26rem] mx-auto my-1">
       <CardHeader floated={false} color="blue-gray">
         <img
           src="https://images.unsplash.com/photo-1499696010180-025ef6e1a8f9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
@@ -35,7 +35,7 @@ export function MarriedCard({data}) {
           </svg>
         </IconButton>
       </CardHeader>
-      <CardBody>
+      <CardBody className="h-[40vh]">
         <div className="mb-3 flex items-center justify-between">
           <div>
             <Typography
@@ -69,7 +69,7 @@ export function MarriedCard({data}) {
             {reviewRating}
           </Typography>
         </div>
-        <Typography color="gray">{successStory} </Typography>
+        <Typography color="gray">{successStory}</Typography>
       </CardBody>
     </Card>
   );

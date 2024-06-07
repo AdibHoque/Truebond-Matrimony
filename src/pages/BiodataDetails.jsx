@@ -8,6 +8,7 @@ import {
 import {FaHeart, FaRegHeart} from "react-icons/fa";
 import {PiCrownSimpleFill} from "react-icons/pi";
 import {useLoaderData} from "react-router-dom";
+import MySwal from "sweetalert2";
 
 export default function BiodataDetails() {
   const data = useLoaderData();
@@ -34,28 +35,33 @@ export default function BiodataDetails() {
     premium,
   } = data;
 
+  function addToFavorite() {
+    const db = localStorage.getItem("favorites");
+    const favDb = db ? JSON.parse(db) : [];
+    const itemExists = favDb.some((favItem) => favItem._id === data._id);
+
+    if (itemExists) {
+      MySwal.fire({
+        position: "center",
+        icon: "error",
+        text: "You already favorited this Biodata.",
+        showConfirmButton: false,
+        timer: 1000,
+      });
+    } else {
+      favDb.push(data);
+      localStorage.setItem("favorites", JSON.stringify(favDb));
+      MySwal.fire({
+        position: "center",
+        icon: "success",
+        text: "Successfully favorited this Biodata.",
+        showConfirmButton: false,
+        timer: 1000,
+      });
+    }
+  }
+
   const isPremium = true;
-  // {
-  //   "biodataId": 1,
-  //   "gender": "Male",
-  //   "name": "Ahmed Rahman",
-  //   "profileImage": "https://example.com/profile1.jpg",
-  //   "dob": "1990-05-15",
-  //   "height": "5'8\"",
-  //   "weight": "70 kg",
-  //   "age": 34,
-  //   "occupation": "Engineer",
-  //   "race": "Bengali",
-  //   "fathersName": "Mohammed Rahman",
-  //   "mothersName": "Shirin Rahman",
-  //   "permanentDivision": "Dhaka",
-  //   "presentDivision": "Chattagram",
-  //   "expectedPartnerAge": "25-30",
-  //   "expectedPartnerHeight": "5'2\"-5'6\"",
-  //   "expectedPartnerWeight": "50-60 kg",
-  //   "contactEmail": "ahmed.rahman@example.com",
-  //   "mobileNumber": "017XXXXXXXX"
-  // },
 
   return (
     <Card className="flex-col items-center justify-center w-full min-h-screen px-4 py-4 lg:flex-row lg:px-24">
@@ -226,6 +232,7 @@ export default function BiodataDetails() {
             variant="outlined"
             color="purple"
             className="flex items-center gap-2"
+            onClick={addToFavorite}
           >
             Add To Favorites
             <FaRegHeart></FaRegHeart>

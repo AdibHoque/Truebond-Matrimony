@@ -9,6 +9,7 @@ import Dashboard from "./pages/Dashboard";
 import UserHome from "./components/dashboard/user/UserHome";
 import PrivateRoute from "./PrivateRoute";
 import BiodataDetails from "./pages/BiodataDetails";
+import Favorites from "./components/dashboard/user/Favorites";
 
 const routes = createBrowserRouter([
   {
@@ -34,7 +35,11 @@ const routes = createBrowserRouter([
       },
       {
         path: "/biodata/:id",
-        element: <BiodataDetails></BiodataDetails>,
+        element: (
+          <PrivateRoute>
+            <BiodataDetails></BiodataDetails>
+          </PrivateRoute>
+        ),
         loader: ({params}) =>
           fetch(`http://localhost:5000/biodatas?id=${params.id}`),
       },
@@ -53,6 +58,14 @@ const routes = createBrowserRouter([
         element: (
           <PrivateRoute>
             <UserHome></UserHome>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "favorites",
+        element: (
+          <PrivateRoute>
+            <Favorites></Favorites>
           </PrivateRoute>
         ),
       },

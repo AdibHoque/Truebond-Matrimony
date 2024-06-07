@@ -30,9 +30,9 @@ export default function Dashboard() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (user) {
-      navigate("/dashboard/home");
-    }
+    // if (user) {
+    //   navigate("/dashboard/home");
+    // }
   }, [user, navigate, isAdmin]);
   const navClass = ({isActive, isPending}) =>
     isPending || isActive ? "text-purple-500" : "";
@@ -48,7 +48,7 @@ export default function Dashboard() {
               </Typography>
             </div>
             <List>
-              <NavLink to="/dashboard/home" className={navClass}>
+              <NavLink to="home" className={navClass}>
                 <ListItem>
                   <ListItemPrefix>
                     <FaHouseUser className="w-5 h-5" />
@@ -56,7 +56,7 @@ export default function Dashboard() {
                   Dashboard Home
                 </ListItem>
               </NavLink>
-              <NavLink to="/admindashboard" className={navClass}>
+              <NavLink to="admindashboard" className={navClass}>
                 <ListItem>
                   <ListItemPrefix>
                     <FaUserShield className="w-5 h-5" />
@@ -64,7 +64,7 @@ export default function Dashboard() {
                   Admin Dashboard
                 </ListItem>
               </NavLink>
-              <NavLink to="/manageusers" className={navClass}>
+              <NavLink to="manageusers" className={navClass}>
                 <ListItem>
                   <ListItemPrefix>
                     <FaUserCog className="w-5 h-5" />
@@ -72,7 +72,7 @@ export default function Dashboard() {
                   Manage Users
                 </ListItem>
               </NavLink>
-              <NavLink to="/approvedpremium" className={navClass}>
+              <NavLink to="approvedpremium" className={navClass}>
                 <ListItem>
                   <ListItemPrefix>
                     <FaUserCheck className="w-5 h-5" />
@@ -80,7 +80,7 @@ export default function Dashboard() {
                   Approved Premium
                 </ListItem>
               </NavLink>
-              <NavLink to="/approvedcontactrequest" className={navClass}>
+              <NavLink to="approvedcontactrequest" className={navClass}>
                 <ListItem>
                   <ListItemPrefix>
                     <FaUserCheck className="w-5 h-5" />
@@ -126,7 +126,7 @@ export default function Dashboard() {
               </Typography>
             </div>
             <List>
-              <NavLink to="/dashboard/home" className={navClass}>
+              <NavLink to="home" className={navClass}>
                 <ListItem>
                   <ListItemPrefix>
                     <FaHouseUser className="w-5 h-5" />
@@ -134,7 +134,7 @@ export default function Dashboard() {
                   Dashboard Home
                 </ListItem>
               </NavLink>
-              <NavLink to="/editbiodata" className={navClass}>
+              <NavLink to="editbiodata" className={navClass}>
                 <ListItem>
                   <ListItemPrefix>
                     <FaUserEdit className="w-5 h-5" />
@@ -142,7 +142,7 @@ export default function Dashboard() {
                   Edit Biodata
                 </ListItem>
               </NavLink>
-              <NavLink to="/viewbiodata" className={navClass}>
+              <NavLink to="viewbiodata" className={navClass}>
                 <ListItem>
                   <ListItemPrefix>
                     <FaUser className="w-5 h-5" />
@@ -150,7 +150,7 @@ export default function Dashboard() {
                   View Biodata
                 </ListItem>
               </NavLink>
-              <NavLink to="/mycontactrequest" className={navClass}>
+              <NavLink to="mycontactrequest" className={navClass}>
                 <ListItem>
                   <ListItemPrefix>
                     <FaUserPlus className="w-5 h-5" />
@@ -158,7 +158,7 @@ export default function Dashboard() {
                   My Contact Request
                 </ListItem>
               </NavLink>
-              <NavLink to="/favorites" className={navClass}>
+              <NavLink to="favorites" className={navClass}>
                 <ListItem>
                   <ListItemPrefix>
                     <FaHeart className="w-5 h-5" />
