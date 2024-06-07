@@ -2,6 +2,7 @@ import {Card, IconButton, Tooltip, Typography} from "@material-tailwind/react";
 import MySwal from "sweetalert2";
 import {FaTrash} from "react-icons/fa";
 import {useEffect, useState} from "react";
+import SectionTitle from "../../SectionTitle";
 
 const TABLE_HEAD = [
   "Name",
@@ -41,91 +42,101 @@ export default function Favorites() {
           title: "Removed Favorite!",
           text: "The Biodata has been removed from your favorites.",
           icon: "success",
+          timer: 1000,
         });
       }
     });
   }
 
   return (
-    <Card className="h-full w-full overflow-scroll">
-      <table className="w-full min-w-max table-auto text-left">
-        <thead>
-          <tr>
-            {TABLE_HEAD.map((head) => (
-              <th
-                key={head}
-                className="border-b border-blue-gray-100 bg-blue-gray-50 p-4"
-              >
-                <Typography
-                  variant="small"
-                  color="blue-gray"
-                  className="font-normal leading-none opacity-70"
+    <div className="flex flex-col w-full">
+      <div className="my-6">
+        <SectionTitle title="Favorites"></SectionTitle>
+      </div>
+
+      <Card className="h-full w-full overflow-scroll">
+        <table className="w-full min-w-max table-auto text-left">
+          <thead>
+            <tr>
+              {TABLE_HEAD.map((head) => (
+                <th
+                  key={head}
+                  className="border-b border-blue-gray-100 bg-blue-gray-50 p-4"
                 >
-                  {head}
-                </Typography>
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {data.map(
-            ({name, biodataId, permanentDivision, occupation, _id}, index) => (
-              <tr key={name} className="even:bg-blue-gray-50/50">
-                <td className="p-4">
                   <Typography
                     variant="small"
                     color="blue-gray"
-                    className="font-normal"
+                    className="font-normal leading-none opacity-70"
                   >
-                    {name}
+                    {head}
                   </Typography>
-                </td>
-                <td className="p-4">
-                  <Typography
-                    variant="small"
-                    color="blue-gray"
-                    className="font-normal"
-                  >
-                    {biodataId}
-                  </Typography>
-                </td>
-                <td className="p-4">
-                  <Typography
-                    variant="small"
-                    color="blue-gray"
-                    className="font-normal"
-                  >
-                    {permanentDivision}
-                  </Typography>
-                </td>
-                <td className="p-4">
-                  <Typography
-                    variant="small"
-                    color="blue-gray"
-                    className="font-normal"
-                  >
-                    {occupation}
-                  </Typography>
-                </td>
-                <td onClick={() => deleteById(_id)} className="p-4">
-                  <Tooltip content="Remove Favorite">
-                    <IconButton variant="text">
-                      <FaTrash className="h-4 w-4 text-red-600" />
-                    </IconButton>
-                  </Tooltip>
-                </td>
-              </tr>
-            )
-          )}
-        </tbody>
-      </table>
-      {data.length == 0 ? (
-        <h4 className="w-full text-center h-32 txet-3xl font-medium flex justify-center items-center">
-          No Biodata Favorited.
-        </h4>
-      ) : (
-        ""
-      )}
-    </Card>
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {data.map(
+              (
+                {name, biodataId, permanentDivision, occupation, _id},
+                index
+              ) => (
+                <tr key={name} className="even:bg-blue-gray-50/50">
+                  <td className="p-4">
+                    <Typography
+                      variant="small"
+                      color="blue-gray"
+                      className="font-normal"
+                    >
+                      {name}
+                    </Typography>
+                  </td>
+                  <td className="p-4">
+                    <Typography
+                      variant="small"
+                      color="blue-gray"
+                      className="font-normal"
+                    >
+                      {biodataId}
+                    </Typography>
+                  </td>
+                  <td className="p-4">
+                    <Typography
+                      variant="small"
+                      color="blue-gray"
+                      className="font-normal"
+                    >
+                      {permanentDivision}
+                    </Typography>
+                  </td>
+                  <td className="p-4">
+                    <Typography
+                      variant="small"
+                      color="blue-gray"
+                      className="font-normal"
+                    >
+                      {occupation}
+                    </Typography>
+                  </td>
+                  <td onClick={() => deleteById(_id)} className="p-4">
+                    <Tooltip content="Remove Favorite">
+                      <IconButton variant="text">
+                        <FaTrash className="h-4 w-4 text-red-600" />
+                      </IconButton>
+                    </Tooltip>
+                  </td>
+                </tr>
+              )
+            )}
+          </tbody>
+        </table>
+        {data.length == 0 ? (
+          <h4 className="w-full text-center h-32 txet-3xl font-medium flex justify-center items-center">
+            No Biodata Favorited.
+          </h4>
+        ) : (
+          ""
+        )}
+      </Card>
+    </div>
   );
 }

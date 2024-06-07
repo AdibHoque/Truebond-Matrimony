@@ -203,7 +203,7 @@ export default function BiodataDetails() {
             </div>
           </div>
         ) : (
-          <a href="#" className="inline-block mt-4 mr-2">
+          <a className="inline-block mt-4 mr-2">
             <Button
               variant="outlined"
               color="purple"

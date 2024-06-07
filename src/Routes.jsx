@@ -10,6 +10,7 @@ import UserHome from "./components/dashboard/user/UserHome";
 import PrivateRoute from "./PrivateRoute";
 import BiodataDetails from "./pages/BiodataDetails";
 import Favorites from "./components/dashboard/user/Favorites";
+import EditBiodata from "./components/dashboard/user/EditBiodata";
 
 const routes = createBrowserRouter([
   {
@@ -66,6 +67,14 @@ const routes = createBrowserRouter([
         element: (
           <PrivateRoute>
             <Favorites></Favorites>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "editbiodata",
+        element: (
+          <PrivateRoute>
+            <EditBiodata></EditBiodata>
           </PrivateRoute>
         ),
       },

@@ -1,14 +1,13 @@
 import {useContext} from "react";
 import {AuthContext} from "../../../AuthProvider";
 import {Avatar, Badge} from "@material-tailwind/react";
+import SectionTitle from "../../SectionTitle";
 
 export default function UserHome() {
   const {user} = useContext(AuthContext);
   return (
-    <div className="flex flex-col p-10">
-      <h1 className="text-6xl font-bold text-purple-500">
-        Welcome to your dashboard
-      </h1>
+    <div className="flex flex-col p-10 gap-y-10">
+      <SectionTitle title="Welcome to your dashboard"></SectionTitle>
 
       <div className="flex">
         <div className="flex items-center justify-center gap-2">

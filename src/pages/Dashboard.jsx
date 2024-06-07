@@ -21,19 +21,26 @@ import {
   FaUserPlus,
   FaUserShield,
 } from "react-icons/fa";
-import {Link, NavLink, Outlet, useNavigate} from "react-router-dom";
+import {
+  Link,
+  NavLink,
+  Outlet,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 import {AuthContext} from "../AuthProvider";
 
 export default function Dashboard() {
   const {user, logOut} = useContext(AuthContext);
   const isAdmin = false;
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
-    // if (user) {
-    //   navigate("/dashboard/home");
-    // }
-  }, [user, navigate, isAdmin]);
+    if (user && location.pathname == "/dashboard") {
+      navigate("/dashboard/home");
+    }
+  }, [user, navigate, isAdmin, location]);
   const navClass = ({isActive, isPending}) =>
     isPending || isActive ? "text-purple-500" : "";
 
@@ -41,7 +48,7 @@ export default function Dashboard() {
     <>
       <div className="flex">
         {user && isAdmin ? (
-          <Card className="w-64 h-screen p-4 bg-purple-500 rounded-none shadow-xl shadow-blue-gray-900/5 bg-opacity-10">
+          <Card className="sticky top-0 w-64 h-screen p-4 bg-purple-500 rounded-none shadow-xl shadow-blue-gray-900/5 bg-opacity-10">
             <div className="p-4 mb-2">
               <Typography variant="h5" color="purple">
                 Admin Dashboard
@@ -119,7 +126,7 @@ export default function Dashboard() {
             </List>
           </Card>
         ) : (
-          <Card className="w-64 h-screen p-4 bg-purple-500 rounded-none shadow-xl shadow-blue-gray-900/5 bg-opacity-10">
+          <Card className="sticky top-0 w-64 h-screen p-4 bg-purple-500 rounded-none shadow-xl shadow-blue-gray-900/5 bg-opacity-10">
             <div className="p-4 mb-2">
               <Typography variant="h5" color="purple">
                 User Dashboard
