@@ -19,7 +19,11 @@ export default function PremiumCards() {
     },
   });
   if (isPending) {
-    return <Spinner color="purple" className="h-16 w-16" />;
+    return (
+      <div className="w-full h-96 flex justify-center items-center">
+        <Spinner color="purple" className="h-16 w-16" />
+      </div>
+    );
   }
 
   if (isError) {
