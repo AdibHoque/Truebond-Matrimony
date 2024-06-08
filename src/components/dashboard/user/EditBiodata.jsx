@@ -63,7 +63,7 @@ export default function EditBiodata() {
         expectedPartnerWeight: partnerweight,
         contactEmail: email,
         mobileNumber: mobilenumber,
-        premium: false,
+        premium: userBiodata.premium,
       };
       fetch("http://localhost:5000/biodatas", {
         method: "POST",
