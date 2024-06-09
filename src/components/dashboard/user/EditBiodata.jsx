@@ -243,6 +243,11 @@ export default function EditBiodata() {
                   defaultValue={userBiodata.height}
                   required
                 >
+                  {userBiodata.height ? (
+                    <option selected>{userBiodata.height}</option>
+                  ) : (
+                    ""
+                  )}
                   <option>4&apos;0&quot;-4&apos;6&quot;</option>
                   <option>4&apos;7&quot;-5&apos;0&quot;</option>
                   <option>5&apos;1&quot;-5&apos;3&quot;</option>
@@ -268,6 +273,11 @@ export default function EditBiodata() {
                   name="weight"
                   defaultValue={userBiodata.weight}
                 >
+                  {userBiodata.weight ? (
+                    <option selected>{userBiodata.weight}</option>
+                  ) : (
+                    ""
+                  )}
                   <option>40-45 Kgs</option>
                   <option>46-51 Kgs</option>
                   <option>52-57 Kgs</option>
@@ -291,12 +301,18 @@ export default function EditBiodata() {
                   defaultValue={userBiodata.occupation}
                   required
                 >
+                  {userBiodata.occupation ? (
+                    <option selected>{userBiodata.occupation}</option>
+                  ) : (
+                    ""
+                  )}
                   <option>Doctor</option>
                   <option>Engineer</option>
                   <option>Businessman</option>
                   <option>Service Holder</option>
                   <option>Teacher</option>
                   <option>Software Developer</option>
+                  <option>Student</option>
                 </select>
               </div>
               <div className="flex flex-col gap-2 w-full">
@@ -316,6 +332,11 @@ export default function EditBiodata() {
                   defaultValue={userBiodata.race}
                   name="race"
                 >
+                  {userBiodata.race ? (
+                    <option selected>{userBiodata.race}</option>
+                  ) : (
+                    ""
+                  )}
                   <option>Bengali</option>
                   <option>White</option>
                   <option>Black</option>
@@ -372,6 +393,11 @@ export default function EditBiodata() {
                   defaultValue={userBiodata.permanentDivision}
                   required
                 >
+                  {userBiodata.permanentDivision ? (
+                    <option selected>{userBiodata.permanentDivision}</option>
+                  ) : (
+                    ""
+                  )}
                   <option>Dhaka</option>
                   <option>Chattagram</option>
                   <option>Rangpur</option>
@@ -393,6 +419,11 @@ export default function EditBiodata() {
                   defaultValue={userBiodata.presentDivision}
                   required
                 >
+                  {userBiodata.presentDivision ? (
+                    <option selected>{userBiodata.presentDivision}</option>
+                  ) : (
+                    ""
+                  )}
                   <option>Dhaka</option>
                   <option>Chattagram</option>
                   <option>Rangpur</option>
@@ -417,6 +448,13 @@ export default function EditBiodata() {
                   name="partnerheight"
                   defaultValue={userBiodata.expectedPartnerHeight}
                 >
+                  {userBiodata.expectedPartnerHeight ? (
+                    <option selected>
+                      {userBiodata.expectedPartnerHeight}
+                    </option>
+                  ) : (
+                    ""
+                  )}
                   <option>4&apos;0&quot;-4&apos;6&quot;</option>
                   <option>4&apos;7&quot;-5&apos;0&quot;</option>
                   <option>5&apos;1&quot;-5&apos;3&quot;</option>
@@ -437,6 +475,13 @@ export default function EditBiodata() {
                   name="partnerweight"
                   defaultValue={userBiodata.expectedPartnerWeight}
                 >
+                  {userBiodata.expectedPartnerWeight ? (
+                    <option selected>
+                      {userBiodata.expectedPartnerWeight}
+                    </option>
+                  ) : (
+                    ""
+                  )}
                   <option>40-45 Kgs</option>
                   <option>46-51 Kgs</option>
                   <option>52-57 Kgs</option>
