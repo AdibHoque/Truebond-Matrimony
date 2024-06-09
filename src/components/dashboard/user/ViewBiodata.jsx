@@ -334,14 +334,20 @@ export default function ViewBiodata() {
             </div>
           </div>
         </form>
-        <Button
-          onClick={handlePremium}
-          className="mt-4"
-          color="purple"
-          fullWidth
-        >
-          Request to Make Biodata Premium
-        </Button>
+        {userBiodata.premium ? (
+          <Button className="mt-4" color="purple" fullWidth disabled>
+            Request to Make Biodata Premium
+          </Button>
+        ) : (
+          <Button
+            onClick={handlePremium}
+            className="mt-4"
+            color="purple"
+            fullWidth
+          >
+            Request to Make Biodata Premium
+          </Button>
+        )}
       </div>
     </div>
   );

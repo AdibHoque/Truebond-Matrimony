@@ -1,8 +1,9 @@
 import {Card, IconButton, Tooltip, Typography} from "@material-tailwind/react";
 import MySwal from "sweetalert2";
 import {FaTrash} from "react-icons/fa";
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import SectionTitle from "../../SectionTitle";
+import {AuthContext} from "../../../AuthProvider";
 
 const TABLE_HEAD = [
   "Name",
@@ -13,7 +14,8 @@ const TABLE_HEAD = [
 ];
 
 export default function Favorites() {
-  const db = localStorage.getItem("favorites");
+  const {user} = useContext(AuthContext);
+  const db = localStorage.getItem(`favorite-${user.email}`);
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -32,12 +34,15 @@ export default function Favorites() {
       confirmButtonText: "Remove",
     }).then((result) => {
       if (result.isConfirmed) {
-        const db = localStorage.getItem("favorites");
+        const db = localStorage.getItem(`favorite-${user.email}`);
         const favDb = db ? JSON.parse(db) : [];
 
         const updatedFavDb = favDb.filter((item) => item._id !== _id);
 
-        localStorage.setItem("favorites", JSON.stringify(updatedFavDb));
+        localStorage.setItem(
+          `favorite-${user.email}`,
+          JSON.stringify(updatedFavDb)
+        );
         MySwal.fire({
           title: "Removed Favorite!",
           text: "The Biodata has been removed from your favorites.",

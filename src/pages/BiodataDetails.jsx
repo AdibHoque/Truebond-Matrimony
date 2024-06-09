@@ -5,12 +5,15 @@ import {
   Typography,
   Button,
 } from "@material-tailwind/react";
+import {useContext} from "react";
 import {FaHeart, FaRegHeart} from "react-icons/fa";
 import {PiCrownSimpleFill} from "react-icons/pi";
 import {useLoaderData} from "react-router-dom";
 import MySwal from "sweetalert2";
+import {AuthContext} from "../AuthProvider";
 
 export default function BiodataDetails() {
+  const {user} = useContext(AuthContext);
   const data = useLoaderData();
   const {
     biodataId,
@@ -36,7 +39,7 @@ export default function BiodataDetails() {
   } = data;
 
   function addToFavorite() {
-    const db = localStorage.getItem("favorites");
+    const db = localStorage.getItem(`favorite-${user.email}`);
     const favDb = db ? JSON.parse(db) : [];
     const itemExists = favDb.some((favItem) => favItem._id === data._id);
 
@@ -50,7 +53,7 @@ export default function BiodataDetails() {
       });
     } else {
       favDb.push(data);
-      localStorage.setItem("favorites", JSON.stringify(favDb));
+      localStorage.setItem(`favorite-${user.email}`, JSON.stringify(favDb));
       MySwal.fire({
         position: "center",
         icon: "success",
@@ -227,7 +230,7 @@ export default function BiodataDetails() {
             </Button>
           </a>
         )}
-        <a href="#" className="inline-block mt-4">
+        <a className="inline-block mt-4">
           <Button
             variant="outlined"
             color="purple"

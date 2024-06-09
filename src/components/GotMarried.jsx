@@ -8,15 +8,47 @@ import {Swiper, SwiperSlide} from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import {Pagination} from "swiper/modules";
+import {useQuery} from "@tanstack/react-query";
+import {Spinner} from "@material-tailwind/react";
 
 export default function GotMarried() {
-  const [data, setData] = useState([]);
+  const {
+    isPending,
+    isError,
+    error,
+    data: marriedstory,
+  } = useQuery({
+    queryKey: ["marriedstory"],
+    queryFn: async () => {
+      const res = await fetch("http://localhost:5000/marriedstory");
+      return res.json();
+    },
+  });
+
+  const [sortedData, setSortedData] = useState([]);
 
   useEffect(() => {
-    fetch("/gotmarried.json")
-      .then((data) => data.json())
-      .then((data) => setData(data));
-  }, []);
+    if (marriedstory) {
+      const sorted = marriedstory.sort((a, b) => {
+        const dateA = new Date(a.marriageDate);
+        const dateB = new Date(b.marriageDate);
+        return dateB - dateA;
+      });
+      setSortedData(sorted);
+    }
+  }, [marriedstory]);
+
+  if (isPending) {
+    return (
+      <div className="flex justify-center items-center h-screen w-full">
+        <Spinner className="size-24" color="purple" />
+      </div>
+    );
+  }
+  if (isError) {
+    return <p>{error.message}</p>;
+  }
+
   return (
     <>
       <div className="my-8 px-4 lg:px-24">
@@ -25,6 +57,7 @@ export default function GotMarried() {
           <Swiper
             slidesPerView={1}
             spaceBetween={30}
+            color=""
             pagination={{
               clickable: true,
             }}
@@ -43,7 +76,7 @@ export default function GotMarried() {
             }}
             className="mySwiper"
           >
-            {data.map((data) => (
+            {sortedData.map((data) => (
               <SwiperSlide key={Math.random * 9999999}>
                 <MarriedCard data={data}></MarriedCard>
               </SwiperSlide>
