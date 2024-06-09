@@ -127,6 +127,17 @@ export default function AuthProvider({children}) {
 
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
+        const obj = {
+          email: email,
+          username: username,
+        };
+        fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(obj),
+        });
         // Signed in
         if (username && photo) {
           updateProfile(auth.currentUser, {
@@ -195,7 +206,18 @@ export default function AuthProvider({children}) {
     setLoading(true);
     signInWithPopup(auth, provider)
       .then((result) => {
-        console.log(result);
+        console.log(result.user);
+        const obj = {
+          email: result.user.email,
+          username: result.user.displayName,
+        };
+        fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(obj),
+        });
         MySwal.fire({
           position: "center",
           icon: "success",

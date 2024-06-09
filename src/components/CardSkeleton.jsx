@@ -1,13 +1,15 @@
-import {Button, Typography} from "@material-tailwind/react";
-import Card, {
+import {
+  Button,
+  Typography,
+  Card,
   CardBody,
   CardFooter,
   CardHeader,
-} from "packages/material-tailwind-react/src/components/Card";
+} from "@material-tailwind/react";
 
 export default function CardSkeleton() {
   return (
-    <Card className="mt-6 w-96 animate-pulse">
+    <Card className="w-96 animate-pulse mx-auto">
       <CardHeader
         shadow={false}
         floated={false}

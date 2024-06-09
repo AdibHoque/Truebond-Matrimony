@@ -1,3 +1,4 @@
+import CardSkeleton from "../components/CardSkeleton";
 import GotMarried from "../components/GotMarried";
 import Hero from "../components/Hero";
 import HowItWorks from "../components/HowItWorks";
