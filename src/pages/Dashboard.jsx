@@ -6,14 +6,18 @@ import {
   ListItemPrefix,
   ListItemSuffix,
   Chip,
+  Drawer,
+  IconButton,
 } from "@material-tailwind/react";
-import {useContext, useEffect} from "react";
+import {useContext, useEffect, useState} from "react";
 import {
   FaDatabase,
   FaHeart,
   FaHome,
   FaHouseUser,
   FaPowerOff,
+  FaRegTimesCircle,
+  FaTimes,
   FaUser,
   FaUserCheck,
   FaUserCog,
@@ -43,92 +47,164 @@ export default function Dashboard() {
   }, [user, navigate, isAdmin, location]);
   const navClass = ({isActive, isPending}) =>
     isPending || isActive ? "text-purple-500" : "";
+  const [open, setOpen] = useState(window.innerWidth >= 960 ? false : true);
+
+  useEffect(() => {
+    window.addEventListener(
+      "resize",
+      () => window.innerWidth >= 960 && setOpen(false)
+    );
+    window.addEventListener(
+      "resize",
+      () => window.innerWidth <= 960 && setOpen(true)
+    );
+  }, []);
 
   return (
     <>
       <div className="flex">
         {user && isAdmin ? (
-          <Card className="sticky top-0 w-64 h-screen p-4 bg-purple-500 rounded-none shadow-xl shadow-blue-gray-900/5 bg-opacity-10">
-            <div className="p-4 mb-2">
-              <Typography variant="h5" color="purple">
-                Admin Dashboard
-              </Typography>
-            </div>
-            <List>
-              <NavLink to="home" className={navClass}>
-                <ListItem>
-                  <ListItemPrefix>
-                    <FaHouseUser className="w-5 h-5" />
-                  </ListItemPrefix>
-                  Dashboard Home
-                </ListItem>
-              </NavLink>
-              <NavLink to="admindashboard" className={navClass}>
-                <ListItem>
-                  <ListItemPrefix>
-                    <FaUserShield className="w-5 h-5" />
-                  </ListItemPrefix>
+          open ? (
+            <IconButton
+              variant="text"
+              className="absolute top-1 left-1 z-50 size-24 text-3xl ml-auto text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
+              ripple={false}
+              onClick={() => setOpen(false)}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </IconButton>
+          ) : (
+            <Card className="z-50 absolute lg:sticky top-0 w-64 h-screen p-4 bg-purple-100 rounded-none shadow-xl shadow-blue-gray-900/5">
+              <div className="p-4 mb-2">
+                <IconButton
+                  variant="text"
+                  className="absolute top-1 left-1 size-24 ml-auto text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
+                  ripple={false}
+                  onClick={() => setOpen(true)}
+                >
+                  <FaRegTimesCircle className="text-3xl"></FaRegTimesCircle>
+                </IconButton>
+                <Typography variant="h5" color="purple" className="mt-2">
                   Admin Dashboard
-                </ListItem>
-              </NavLink>
-              <NavLink to="manageusers" className={navClass}>
-                <ListItem>
-                  <ListItemPrefix>
-                    <FaUserCog className="w-5 h-5" />
-                  </ListItemPrefix>
-                  Manage Users
-                </ListItem>
-              </NavLink>
-              <NavLink to="approvedpremium" className={navClass}>
-                <ListItem>
-                  <ListItemPrefix>
-                    <FaUserCheck className="w-5 h-5" />
-                  </ListItemPrefix>
-                  Approved Premium
-                </ListItem>
-              </NavLink>
-              <NavLink to="approvedcontactrequest" className={navClass}>
-                <ListItem>
-                  <ListItemPrefix>
-                    <FaUserCheck className="w-5 h-5" />
-                  </ListItemPrefix>
-                  Approved Contact Request
-                </ListItem>
-              </NavLink>
+                </Typography>
+              </div>
+              <List>
+                <NavLink to="home" className={navClass}>
+                  <ListItem>
+                    <ListItemPrefix>
+                      <FaHouseUser className="w-5 h-5" />
+                    </ListItemPrefix>
+                    Dashboard Home
+                  </ListItem>
+                </NavLink>
+                <NavLink to="admindashboard" className={navClass}>
+                  <ListItem>
+                    <ListItemPrefix>
+                      <FaUserShield className="w-5 h-5" />
+                    </ListItemPrefix>
+                    Admin Dashboard
+                  </ListItem>
+                </NavLink>
+                <NavLink to="manageusers" className={navClass}>
+                  <ListItem>
+                    <ListItemPrefix>
+                      <FaUserCog className="w-5 h-5" />
+                    </ListItemPrefix>
+                    Manage Users
+                  </ListItem>
+                </NavLink>
+                <NavLink to="approvedpremium" className={navClass}>
+                  <ListItem>
+                    <ListItemPrefix>
+                      <FaUserCheck className="w-5 h-5" />
+                    </ListItemPrefix>
+                    Approved Premium
+                  </ListItem>
+                </NavLink>
+                <NavLink to="approvedcontactrequest" className={navClass}>
+                  <ListItem>
+                    <ListItemPrefix>
+                      <FaUserCheck className="w-5 h-5" />
+                    </ListItemPrefix>
+                    Approved Contact Request
+                  </ListItem>
+                </NavLink>
 
-              <ListItem onClick={logOut}>
-                <ListItemPrefix>
-                  <FaPowerOff className="w-5 h-5" />
-                </ListItemPrefix>
-                Log Out
-              </ListItem>
+                <ListItem onClick={logOut}>
+                  <ListItemPrefix>
+                    <FaPowerOff className="w-5 h-5" />
+                  </ListItemPrefix>
+                  Log Out
+                </ListItem>
 
-              <hr className="h-1 my-6 bg-blue-gray-700 opacity-20" />
-              <Link to="/">
-                <ListItem>
-                  <ListItemPrefix>
-                    <FaHome className="w-5 h-5" />
-                  </ListItemPrefix>
-                  Home
-                </ListItem>
-              </Link>
-              <Link to="/biodatas">
-                <ListItem>
-                  <ListItemPrefix>
-                    <FaDatabase className="w-5 h-5" />
-                  </ListItemPrefix>
-                  Biodatas
-                </ListItem>
-              </Link>
-              {/* <NavLink to="/editbiodata" className={navClass}>
+                <hr className="h-1 my-6 bg-blue-gray-700 opacity-20" />
+                <Link to="/">
+                  <ListItem>
+                    <ListItemPrefix>
+                      <FaHome className="w-5 h-5" />
+                    </ListItemPrefix>
+                    Home
+                  </ListItem>
+                </Link>
+                <Link to="/biodatas">
+                  <ListItem>
+                    <ListItemPrefix>
+                      <FaDatabase className="w-5 h-5" />
+                    </ListItemPrefix>
+                    Biodatas
+                  </ListItem>
+                </Link>
+                {/* <NavLink to="/editbiodata" className={navClass}>
            
            </NavLink> */}
-            </List>
-          </Card>
+              </List>
+            </Card>
+          )
+        ) : open ? (
+          <IconButton
+            variant="text"
+            className="absolute top-1 left-1 z-50 size-24 text-3xl ml-auto text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
+            ripple={false}
+            onClick={() => setOpen(false)}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </IconButton>
         ) : (
-          <Card className="sticky top-0 w-64 h-screen p-4 bg-purple-500 rounded-none shadow-xl shadow-blue-gray-900/5 bg-opacity-10">
+          <Card className="z-50 absolute lg:sticky top-0 w-64 h-screen p-4 bg-purple-100 rounded-none shadow-xl shadow-blue-gray-900/5">
             <div className="p-4 mb-2">
-              <Typography variant="h5" color="purple">
+              <IconButton
+                variant="text"
+                className="absolute top-1 left-1 size-24 ml-auto text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
+                ripple={false}
+                onClick={() => setOpen(true)}
+              >
+                <FaRegTimesCircle className="text-3xl"></FaRegTimesCircle>
+              </IconButton>
+              <Typography variant="h5" color="purple" className="mt-2">
                 User Dashboard
               </Typography>
             </div>
@@ -204,6 +280,7 @@ export default function Dashboard() {
             </List>
           </Card>
         )}
+
         <Outlet></Outlet>
       </div>
     </>

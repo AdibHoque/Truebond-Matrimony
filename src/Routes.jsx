@@ -13,6 +13,7 @@ import Favorites from "./components/dashboard/user/Favorites";
 import EditBiodata from "./components/dashboard/user/EditBiodata";
 import ViewBiodata from "./components/dashboard/user/ViewBiodata";
 import ManageUsers from "./components/dashboard/admin/ManageUsers";
+import AdminDashboard from "./components/dashboard/admin/AdmnDashboard";
 
 const routes = createBrowserRouter([
   {
@@ -93,6 +94,14 @@ const routes = createBrowserRouter([
         element: (
           <PrivateRoute>
             <ManageUsers></ManageUsers>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "admindashboard",
+        element: (
+          <PrivateRoute>
+            <AdminDashboard></AdminDashboard>
           </PrivateRoute>
         ),
       },

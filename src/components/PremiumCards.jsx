@@ -44,7 +44,7 @@ export default function PremiumCards() {
   return (
     <div className="my-6  px-4 lg:px-24">
       <SectionTitle title="Premium Members"></SectionTitle>
-      <div className="w-32">
+      <div className="w-32 mt-2">
         <Select
           onChange={() => setFilter(filter === "asc" ? "desc" : "asc")}
           variant="outlined"
@@ -55,7 +55,7 @@ export default function PremiumCards() {
           <Option>Age - Descending</Option>
         </Select>
       </div>
-      <div className="grid w-full grid-cols-1 gap-4 mt-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid w-full grid-cols-1 gap-4 gap-y-6 mt-6 md:grid-cols-2 lg:grid-cols-3">
         {data.map((data) => (
           <BioCard key={data._id} data={data}></BioCard>
         ))}

@@ -140,9 +140,9 @@ export default function EditBiodata() {
           Nice to meet you! Enter your biodata details.
         </Typography>
         <form onSubmit={handleEdit} className="w-full mt-8 mb-2">
-          <div className="flex flex-col gap-6 mb-1">
-            <div className="flex gap-2 w-full">
-              <div className="flex flex-col gap-2 w-full">
+          <div className="flex flex-wrap lg:flex-nowrap flex-col gap-6 mb-1">
+            <div className="flex flex-wrap lg:flex-nowrap gap-2 w-full">
+              <div className="flex flex-wrap lg:flex-nowrap flex-col gap-2 w-full">
                 <Typography variant="h6" color="blue-gray" className="">
                   Biodata Type
                 </Typography>
@@ -158,7 +158,7 @@ export default function EditBiodata() {
                   <option>Female</option>
                 </select>
               </div>
-              <div className="flex flex-col gap-2 w-full">
+              <div className="flex flex-wrap lg:flex-nowrap flex-col gap-2 w-full">
                 <Typography variant="h6" color="blue-gray" className="">
                   Your Name
                 </Typography>
@@ -177,8 +177,8 @@ export default function EditBiodata() {
               </div>
             </div>
 
-            <div className="flex gap-2 w-full">
-              <div className="flex flex-col gap-2 w-full">
+            <div className="flex flex-wrap lg:flex-nowrap gap-2 w-full">
+              <div className="flex flex-wrap lg:flex-nowrap flex-col gap-2 w-full">
                 <Typography variant="h6" color="blue-gray" className="">
                   Image URL
                 </Typography>
@@ -195,7 +195,7 @@ export default function EditBiodata() {
                   }}
                 />
               </div>
-              <div className="flex flex-col gap-2 w-full">
+              <div className="flex flex-wrap lg:flex-nowrap flex-col gap-2 w-full">
                 <Typography variant="h6" color="blue-gray" className="">
                   Date of Birth
                 </Typography>
@@ -212,7 +212,7 @@ export default function EditBiodata() {
                   }}
                 />
               </div>
-              <div className="flex flex-col gap-2 w-full">
+              <div className="flex flex-wrap lg:flex-nowrap flex-col gap-2 w-full">
                 <Typography variant="h6" color="blue-gray" className="">
                   Age
                 </Typography>
@@ -230,8 +230,8 @@ export default function EditBiodata() {
                 />
               </div>
             </div>
-            <div className="flex gap-2 w-full">
-              <div className="flex flex-col gap-2 w-full">
+            <div className="flex flex-wrap lg:flex-nowrap gap-2 w-full">
+              <div className="flex flex-wrap lg:flex-nowrap flex-col gap-2 w-full">
                 <Typography variant="h6" color="blue-gray" className="">
                   Height
                 </Typography>
@@ -256,7 +256,7 @@ export default function EditBiodata() {
                   <option>6&apos;0&quot;+</option>
                 </select>
               </div>
-              <div className="flex flex-col gap-2 w-full">
+              <div className="flex flex-wrap lg:flex-nowrap flex-col gap-2 w-full">
                 <Typography
                   variant="h6"
                   color="blue-gray"
@@ -288,8 +288,8 @@ export default function EditBiodata() {
                 </select>
               </div>
             </div>
-            <div className="flex gap-2 w-full">
-              <div className="flex flex-col gap-2 w-full">
+            <div className="flex flex-wrap lg:flex-nowrap gap-2 w-full">
+              <div className="flex flex-wrap lg:flex-nowrap flex-col gap-2 w-full">
                 <Typography variant="h6" color="blue-gray" className="">
                   Occupation
                 </Typography>
@@ -315,7 +315,7 @@ export default function EditBiodata() {
                   <option>Student</option>
                 </select>
               </div>
-              <div className="flex flex-col gap-2 w-full">
+              <div className="flex flex-wrap lg:flex-nowrap flex-col gap-2 w-full">
                 <Typography
                   variant="h6"
                   color="blue-gray"
@@ -344,8 +344,8 @@ export default function EditBiodata() {
                 </select>
               </div>
             </div>
-            <div className="flex gap-2 w-full">
-              <div className="flex flex-col gap-2 w-full">
+            <div className="flex flex-wrap lg:flex-nowrap gap-2 w-full">
+              <div className="flex flex-wrap lg:flex-nowrap flex-col gap-2 w-full">
                 <Typography variant="h6" color="blue-gray" className="">
                   Fathers Name
                 </Typography>
@@ -362,7 +362,7 @@ export default function EditBiodata() {
                   }}
                 />
               </div>
-              <div className="flex flex-col gap-2 w-full">
+              <div className="flex flex-wrap lg:flex-nowrap flex-col gap-2 w-full">
                 <Typography variant="h6" color="blue-gray" className="">
                   Mothers Name
                 </Typography>
@@ -380,8 +380,8 @@ export default function EditBiodata() {
                 />
               </div>
             </div>
-            <div className="flex gap-2 w-full">
-              <div className="flex flex-col gap-2 w-full">
+            <div className="flex flex-wrap lg:flex-nowrap gap-2 w-full">
+              <div className="flex flex-wrap lg:flex-nowrap flex-col gap-2 w-full">
                 <Typography variant="h6" color="blue-gray" className="">
                   Permanent Division
                 </Typography>
@@ -407,7 +407,7 @@ export default function EditBiodata() {
                   <option>Sylhet</option>
                 </select>
               </div>
-              <div className="flex flex-col gap-2 w-full">
+              <div className="flex flex-wrap lg:flex-nowrap flex-col gap-2 w-full">
                 <Typography variant="h6" color="blue-gray" className="">
                   Present Division
                 </Typography>
@@ -435,8 +435,8 @@ export default function EditBiodata() {
               </div>
             </div>
 
-            <div className="flex gap-2 w-full">
-              <div className="flex flex-col gap-2 w-full">
+            <div className="flex flex-wrap lg:flex-nowrap gap-2 w-full">
+              <div className="flex flex-wrap lg:flex-nowrap flex-col gap-2 w-full">
                 <Typography variant="h6" color="blue-gray" className="">
                   Expected Partner Height
                 </Typography>
@@ -463,7 +463,7 @@ export default function EditBiodata() {
                   <option>6&apos;0&quot;+</option>
                 </select>
               </div>
-              <div className="flex flex-col gap-2 w-full">
+              <div className="flex flex-wrap lg:flex-nowrap flex-col gap-2 w-full">
                 <Typography variant="h6" color="blue-gray" className="">
                   Expected Partner Weight
                 </Typography>
@@ -491,7 +491,7 @@ export default function EditBiodata() {
                   <option>75+ Kgs</option>
                 </select>
               </div>
-              <div className="flex flex-col gap-2 w-full">
+              <div className="flex flex-wrap lg:flex-nowrap flex-col gap-2 w-full">
                 <Typography variant="h6" color="blue-gray" className="">
                   Expected Partner Age
                 </Typography>
@@ -509,8 +509,8 @@ export default function EditBiodata() {
                 />
               </div>
             </div>
-            <div className="flex gap-2 w-full">
-              <div className="flex flex-col gap-2 w-full">
+            <div className="flex flex-wrap lg:flex-nowrap gap-2 w-full">
+              <div className="flex flex-wrap lg:flex-nowrap flex-col gap-2 w-full">
                 <Typography variant="h6" color="blue-gray" className="">
                   Email
                 </Typography>
@@ -527,7 +527,7 @@ export default function EditBiodata() {
                   }}
                 />
               </div>
-              <div className="flex flex-col gap-2 w-full">
+              <div className="flex flex-wrap lg:flex-nowrap flex-col gap-2 w-full">
                 <Typography variant="h6" color="blue-gray" className="">
                   Mobile Number
                 </Typography>

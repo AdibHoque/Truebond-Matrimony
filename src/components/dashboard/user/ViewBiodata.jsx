@@ -56,9 +56,9 @@ export default function ViewBiodata() {
           Here are your biodata details.
         </Typography>
         <form className="w-full mt-8 mb-2">
-          <div className="flex flex-col gap-6 mb-1">
-            <div className="flex gap-2 w-full">
-              <div className="flex flex-col gap-2 w-full">
+          <div className="flex flex-wrap lg:flex-nowrap flex-col gap-6 mb-1">
+            <div className="flex flex-wrap lg:flex-nowrap gap-2 w-full">
+              <div className="flex flex-wrap lg:flex-nowrap flex-col gap-2 w-full">
                 <Typography variant="h6" color="blue-gray">
                   Biodata Type
                 </Typography>
@@ -72,7 +72,7 @@ export default function ViewBiodata() {
                   className="!border-t-blue-gray-200 focus:!border-t-gray-900 w-full"
                 />
               </div>
-              <div className="flex flex-col gap-2 w-full">
+              <div className="flex flex-wrap lg:flex-nowrap flex-col gap-2 w-full">
                 <Typography variant="h6" color="blue-gray">
                   Your Name
                 </Typography>
@@ -88,8 +88,8 @@ export default function ViewBiodata() {
               </div>
             </div>
 
-            <div className="flex gap-2 w-full">
-              <div className="flex flex-col gap-2 w-full">
+            <div className="flex flex-wrap lg:flex-nowrap gap-2 w-full">
+              <div className="flex flex-wrap lg:flex-nowrap flex-col gap-2 w-full">
                 <Typography variant="h6" color="blue-gray">
                   Image URL
                 </Typography>
@@ -103,7 +103,7 @@ export default function ViewBiodata() {
                   className="!border-t-blue-gray-200 focus:!border-t-gray-900 w-full"
                 />
               </div>
-              <div className="flex flex-col gap-2 w-full">
+              <div className="flex flex-wrap lg:flex-nowrap flex-col gap-2 w-full">
                 <Typography variant="h6" color="blue-gray">
                   Date of Birth
                 </Typography>
@@ -117,7 +117,7 @@ export default function ViewBiodata() {
                   className="!border-t-blue-gray-200 focus:!border-t-gray-900 w-full"
                 />
               </div>
-              <div className="flex flex-col gap-2 w-full">
+              <div className="flex flex-wrap lg:flex-nowrap flex-col gap-2 w-full">
                 <Typography variant="h6" color="blue-gray">
                   Age
                 </Typography>
@@ -133,8 +133,8 @@ export default function ViewBiodata() {
               </div>
             </div>
 
-            <div className="flex gap-2 w-full">
-              <div className="flex flex-col gap-2 w-full">
+            <div className="flex flex-wrap lg:flex-nowrap gap-2 w-full">
+              <div className="flex flex-wrap lg:flex-nowrap flex-col gap-2 w-full">
                 <Typography variant="h6" color="blue-gray">
                   Height
                 </Typography>
@@ -148,7 +148,7 @@ export default function ViewBiodata() {
                   className="!border-t-blue-gray-200 focus:!border-t-gray-900 w-full"
                 />
               </div>
-              <div className="flex flex-col gap-2 w-full">
+              <div className="flex flex-wrap lg:flex-nowrap flex-col gap-2 w-full">
                 <Typography variant="h6" color="blue-gray">
                   Weight
                 </Typography>
@@ -164,8 +164,8 @@ export default function ViewBiodata() {
               </div>
             </div>
 
-            <div className="flex gap-2 w-full">
-              <div className="flex flex-col gap-2 w-full">
+            <div className="flex flex-wrap lg:flex-nowrap gap-2 w-full">
+              <div className="flex flex-wrap lg:flex-nowrap flex-col gap-2 w-full">
                 <Typography variant="h6" color="blue-gray">
                   Occupation
                 </Typography>
@@ -179,7 +179,7 @@ export default function ViewBiodata() {
                   className="!border-t-blue-gray-200 focus:!border-t-gray-900 w-full"
                 />
               </div>
-              <div className="flex flex-col gap-2 w-full">
+              <div className="flex flex-wrap lg:flex-nowrap flex-col gap-2 w-full">
                 <Typography variant="h6" color="blue-gray">
                   Race
                 </Typography>
@@ -195,8 +195,8 @@ export default function ViewBiodata() {
               </div>
             </div>
 
-            <div className="flex gap-2 w-full">
-              <div className="flex flex-col gap-2 w-full">
+            <div className="flex flex-wrap lg:flex-nowrap gap-2 w-full">
+              <div className="flex flex-wrap lg:flex-nowrap flex-col gap-2 w-full">
                 <Typography variant="h6" color="blue-gray">
                   Father&apos;s Name
                 </Typography>
@@ -210,7 +210,7 @@ export default function ViewBiodata() {
                   className="!border-t-blue-gray-200 focus:!border-t-gray-900 w-full"
                 />
               </div>
-              <div className="flex flex-col gap-2 w-full">
+              <div className="flex flex-wrap lg:flex-nowrap flex-col gap-2 w-full">
                 <Typography variant="h6" color="blue-gray">
                   Mother&apos;s Name
                 </Typography>
@@ -226,8 +226,8 @@ export default function ViewBiodata() {
               </div>
             </div>
 
-            <div className="flex gap-2 w-full">
-              <div className="flex flex-col gap-2 w-full">
+            <div className="flex flex-wrap lg:flex-nowrap gap-2 w-full">
+              <div className="flex flex-wrap lg:flex-nowrap flex-col gap-2 w-full">
                 <Typography variant="h6" color="blue-gray">
                   Permanent Division
                 </Typography>
@@ -241,7 +241,7 @@ export default function ViewBiodata() {
                   className="!border-t-blue-gray-200 focus:!border-t-gray-900 w-full"
                 />
               </div>
-              <div className="flex flex-col gap-2 w-full">
+              <div className="flex flex-wrap lg:flex-nowrap flex-col gap-2 w-full">
                 <Typography variant="h6" color="blue-gray">
                   Present Division
                 </Typography>
@@ -257,8 +257,8 @@ export default function ViewBiodata() {
               </div>
             </div>
 
-            <div className="flex gap-2 w-full">
-              <div className="flex flex-col gap-2 w-full">
+            <div className="flex flex-wrap lg:flex-nowrap gap-2 w-full">
+              <div className="flex flex-wrap lg:flex-nowrap flex-col gap-2 w-full">
                 <Typography variant="h6" color="blue-gray">
                   Expected Partner Height
                 </Typography>
@@ -272,7 +272,7 @@ export default function ViewBiodata() {
                   className="!border-t-blue-gray-200 focus:!border-t-gray-900 w-full"
                 />
               </div>
-              <div className="flex flex-col gap-2 w-full">
+              <div className="flex flex-wrap lg:flex-nowrap flex-col gap-2 w-full">
                 <Typography variant="h6" color="blue-gray">
                   Expected Partner Weight
                 </Typography>
@@ -286,7 +286,7 @@ export default function ViewBiodata() {
                   className="!border-t-blue-gray-200 focus:!border-t-gray-900 w-full"
                 />
               </div>
-              <div className="flex flex-col gap-2 w-full">
+              <div className="flex flex-wrap lg:flex-nowrap flex-col gap-2 w-full">
                 <Typography variant="h6" color="blue-gray">
                   Expected Partner Age
                 </Typography>
@@ -302,8 +302,8 @@ export default function ViewBiodata() {
               </div>
             </div>
 
-            <div className="flex gap-2 w-full">
-              <div className="flex flex-col gap-2 w-full">
+            <div className="flex flex-wrap lg:flex-nowrap gap-2 w-full">
+              <div className="flex flex-wrap lg:flex-nowrap flex-col gap-2 w-full">
                 <Typography variant="h6" color="blue-gray">
                   Email
                 </Typography>
@@ -317,7 +317,7 @@ export default function ViewBiodata() {
                   className="!border-t-blue-gray-200 focus:!border-t-gray-900 w-full"
                 />
               </div>
-              <div className="flex flex-col gap-2 w-full">
+              <div className="flex flex-wrap lg:flex-nowrap flex-col gap-2 w-full">
                 <Typography variant="h6" color="blue-gray">
                   Mobile Number
                 </Typography>

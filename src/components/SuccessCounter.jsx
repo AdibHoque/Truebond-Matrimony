@@ -1,9 +1,35 @@
 import {FaFemale, FaMale} from "react-icons/fa";
 import SectionTitle from "./SectionTitle";
 import {FaDatabase, FaHeartCirclePlus} from "react-icons/fa6";
-import {GiBigDiamondRing} from "react-icons/gi";
+import {CgSpinner} from "react-icons/cg";
+import {Spinner} from "@material-tailwind/react";
+import {useQuery} from "@tanstack/react-query";
 
 export default function SuccessCounter() {
+  const {
+    isPending,
+    isError,
+    error,
+    data: stats,
+  } = useQuery({
+    queryKey: ["stats"],
+    queryFn: async () => {
+      const res = await fetch("http://localhost:5000/stats");
+      return res.json();
+    },
+  });
+
+  if (isPending) {
+    return (
+      <div className="flex justify-center items-center h-screen w-full">
+        <Spinner className="size-24" color="purple" />
+      </div>
+    );
+  }
+  if (isError) {
+    return <p>{error.message}</p>;
+  }
+
   return (
     <>
       <div className="my-12 px-4 lg:px-24">
@@ -12,7 +38,9 @@ export default function SuccessCounter() {
           <div className="flex gap-4 justify-center items-center">
             <FaDatabase className="text-6xl text-blue-gray-900" />
             <div className="flex flex-col justify-center items-center">
-              <h1 className="text-5xl font-extrabold text-purple-500">100</h1>
+              <h1 className="text-5xl font-extrabold text-purple-500">
+                {stats.totalBiodatas}
+              </h1>
               <h3 className="uppercase font-semibold text-blue-gray-900">
                 Total BioDatas
               </h3>
@@ -21,7 +49,9 @@ export default function SuccessCounter() {
           <div className="flex gap-4 justify-center items-center">
             <FaMale className="text-6xl text-blue-gray-900" />
             <div className="flex flex-col justify-center items-center">
-              <h1 className="text-5xl font-extrabold text-blue-500">50</h1>
+              <h1 className="text-5xl font-extrabold text-blue-500">
+                {stats.maleBiodatas}
+              </h1>
               <h3 className="uppercase font-semibold text-blue-gray-900">
                 Male BioDatas
               </h3>
@@ -30,7 +60,9 @@ export default function SuccessCounter() {
           <div className="flex gap-4 justify-center items-center">
             <FaFemale className="text-6xl text-blue-gray-900" />
             <div className="flex flex-col justify-center items-center">
-              <h1 className="text-5xl font-extrabold text-pink-500">50</h1>
+              <h1 className="text-5xl font-extrabold text-pink-500">
+                {stats.femaleBiodatas}
+              </h1>
               <h3 className="uppercase font-semibold text-blue-gray-900">
                 Female BioDatas
               </h3>
@@ -39,7 +71,9 @@ export default function SuccessCounter() {
           <div className="flex gap-4 justify-center items-center">
             <FaHeartCirclePlus className="text-6xl text-blue-gray-900" />
             <div className="flex flex-col justify-center items-center">
-              <h1 className="text-5xl font-extrabold text-purple-500">20</h1>
+              <h1 className="text-5xl font-extrabold text-purple-500">
+                {stats.marriages}
+              </h1>
               <h3 className="uppercase font-semibold text-blue-gray-900">
                 Marriages
               </h3>
