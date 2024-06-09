@@ -8,7 +8,7 @@ import {
 import {useContext} from "react";
 import {FaHeart, FaRegHeart} from "react-icons/fa";
 import {PiCrownSimpleFill} from "react-icons/pi";
-import {useLoaderData} from "react-router-dom";
+import {Link, useLoaderData} from "react-router-dom";
 import MySwal from "sweetalert2";
 import {AuthContext} from "../AuthProvider";
 
@@ -16,6 +16,7 @@ export default function BiodataDetails() {
   const {user} = useContext(AuthContext);
   const data = useLoaderData();
   const {
+    _id,
     biodataId,
     gender,
     name,
@@ -64,7 +65,7 @@ export default function BiodataDetails() {
     }
   }
 
-  const isPremium = true;
+  const isPremium = false;
 
   return (
     <Card className="flex-col items-center justify-center w-full min-h-screen px-4 py-4 lg:flex-row lg:px-24">
@@ -206,7 +207,7 @@ export default function BiodataDetails() {
             </div>
           </div>
         ) : (
-          <a className="inline-block mt-4 mr-2">
+          <Link to={`/checkout/${_id}`} className="inline-block mt-4 mr-2">
             <Button
               variant="outlined"
               color="purple"
@@ -228,7 +229,7 @@ export default function BiodataDetails() {
                 />
               </svg>
             </Button>
-          </a>
+          </Link>
         )}
         <a className="inline-block mt-4">
           <Button

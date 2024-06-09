@@ -14,6 +14,7 @@ import EditBiodata from "./components/dashboard/user/EditBiodata";
 import ViewBiodata from "./components/dashboard/user/ViewBiodata";
 import ManageUsers from "./components/dashboard/admin/ManageUsers";
 import AdminDashboard from "./components/dashboard/admin/AdmnDashboard";
+import Checkout from "./pages/Checkout";
 
 const routes = createBrowserRouter([
   {
@@ -42,6 +43,16 @@ const routes = createBrowserRouter([
         element: (
           <PrivateRoute>
             <BiodataDetails></BiodataDetails>
+          </PrivateRoute>
+        ),
+        loader: ({params}) =>
+          fetch(`http://localhost:5000/biodatas?id=${params.id}`),
+      },
+      {
+        path: "/checkout/:id",
+        element: (
+          <PrivateRoute>
+            <Checkout></Checkout>
           </PrivateRoute>
         ),
         loader: ({params}) =>
