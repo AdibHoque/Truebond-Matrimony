@@ -12,6 +12,7 @@ import BiodataDetails from "./pages/BiodataDetails";
 import Favorites from "./components/dashboard/user/Favorites";
 import EditBiodata from "./components/dashboard/user/EditBiodata";
 import ViewBiodata from "./components/dashboard/user/ViewBiodata";
+import ManageUsers from "./components/dashboard/admin/ManageUsers";
 
 const routes = createBrowserRouter([
   {
@@ -84,6 +85,14 @@ const routes = createBrowserRouter([
         element: (
           <PrivateRoute>
             <ViewBiodata></ViewBiodata>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "manageusers",
+        element: (
+          <PrivateRoute>
+            <ManageUsers></ManageUsers>
           </PrivateRoute>
         ),
       },

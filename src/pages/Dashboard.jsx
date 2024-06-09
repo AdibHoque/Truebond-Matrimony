@@ -32,7 +32,7 @@ import {AuthContext} from "../AuthProvider";
 
 export default function Dashboard() {
   const {user, logOut} = useContext(AuthContext);
-  const isAdmin = false;
+  const isAdmin = true;
   const navigate = useNavigate();
   const location = useLocation();
 
