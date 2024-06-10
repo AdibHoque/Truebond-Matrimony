@@ -14,7 +14,9 @@ export default function PremiumCards() {
   } = useQuery({
     queryKey: ["premiumbiodatas"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/biodatas?premium=true");
+      const res = await fetch(
+        "https://truebond-matrimony.vercel.app/biodatas?premium=true"
+      );
       return res.json();
     },
   });

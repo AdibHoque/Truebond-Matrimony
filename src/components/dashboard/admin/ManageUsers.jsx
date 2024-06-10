@@ -28,7 +28,7 @@ export default function ManageUsers() {
       confirmButtonText: "Make Admin",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/users/admin/${email}`, {
+        fetch(`https://truebond-matrimony.vercel.app/users/admin/${email}`, {
           method: "PATCH",
           headers: {
             "Content-Type": "application/json",
@@ -54,12 +54,15 @@ export default function ManageUsers() {
       confirmButtonText: "Make Premium",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/biodatas/premium/${email}`, {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+        fetch(
+          `https://truebond-matrimony.vercel.app/biodatas/premium/${email}`,
+          {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
         MySwal.fire({
           title: "Successfully Made Premium!",
           text: "The User Biodata is now premium.",
@@ -78,7 +81,7 @@ export default function ManageUsers() {
   } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/users");
+      const res = await fetch("https://truebond-matrimony.vercel.app/users");
       return res.json();
     },
   });

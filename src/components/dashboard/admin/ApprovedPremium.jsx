@@ -29,12 +29,15 @@ export default function ApprovedPremium() {
       confirmButtonText: "Make Premium",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/biodatas/premium/${email}`, {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+        fetch(
+          `https://truebond-matrimony.vercel.app/biodatas/premium/${email}`,
+          {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
         MySwal.fire({
           title: "Successfully Made Premium!",
           text: "The User Biodata is now premium.",
@@ -55,7 +58,9 @@ export default function ApprovedPremium() {
   } = useQuery({
     queryKey: ["mycontacts"],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/premiumrequests`);
+      const res = await fetch(
+        `https://truebond-matrimony.vercel.app/premiumrequests`
+      );
       return res.json();
     },
   });

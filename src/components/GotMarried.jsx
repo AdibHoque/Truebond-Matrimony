@@ -20,7 +20,9 @@ export default function GotMarried() {
   } = useQuery({
     queryKey: ["marriedstory"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/marriedstory");
+      const res = await fetch(
+        "https://truebond-matrimony.vercel.app/marriedstory"
+      );
       return res.json();
     },
   });

@@ -21,7 +21,7 @@ export default function Biodatas() {
   } = useQuery({
     queryKey: ["biodatas"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/biodatas");
+      const res = await fetch("https://truebond-matrimony.vercel.app/biodatas");
       return res.json();
     },
   });

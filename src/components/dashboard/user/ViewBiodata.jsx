@@ -7,7 +7,7 @@ export default function ViewBiodata() {
   const [userBiodata, setUserBiodata] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:5000/biodatas?email=${user.email}`)
+    fetch(`https://truebond-matrimony.vercel.app/biodatas?email=${user.email}`)
       .then((data) => data.json())
       .then((data) => setUserBiodata(data));
   }, [user.email]);
@@ -28,7 +28,7 @@ export default function ViewBiodata() {
           email: userBiodata.contactEmail,
           name: userBiodata.name,
         };
-        fetch("http://localhost:5000/premiumrequests", {
+        fetch("https://truebond-matrimony.vercel.app/premiumrequests", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

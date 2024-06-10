@@ -131,7 +131,7 @@ export default function AuthProvider({children}) {
           email: email,
           username: username,
         };
-        fetch("http://localhost:5000/users", {
+        fetch("https://truebond-matrimony.vercel.app/users", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -211,7 +211,7 @@ export default function AuthProvider({children}) {
           email: result.user.email,
           username: result.user.displayName,
         };
-        fetch("http://localhost:5000/users", {
+        fetch("https://truebond-matrimony.vercel.app/users", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -301,7 +301,7 @@ export default function AuthProvider({children}) {
       const loggedUser = {email: userEmail};
       if (currentuser) {
         axios
-          .post("http://localhost:5000/jwt", loggedUser, {
+          .post("https://truebond-matrimony.vercel.app/jwt", loggedUser, {
             withCredentials: true,
           })
           .then((res) => {
@@ -309,7 +309,7 @@ export default function AuthProvider({children}) {
           });
       } else {
         axios
-          .post("http://localhost:5000/logout", loggedUser, {
+          .post("https://truebond-matrimony.vercel.app/logout", loggedUser, {
             withCredentials: true,
           })
           .then((res) => {

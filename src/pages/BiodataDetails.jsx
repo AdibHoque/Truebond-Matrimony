@@ -19,7 +19,7 @@ export default function BiodataDetails() {
   const [isPremium, setIsPremium] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/biodatas?email=${user.email}`)
+    fetch(`https://truebond-matrimony.vercel.app/biodatas?email=${user.email}`)
       .then((data) => data.json())
       .then((data) => setIsPremium(data.premium));
   }, [user]);

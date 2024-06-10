@@ -14,7 +14,7 @@ export default function SuccessCounter() {
   } = useQuery({
     queryKey: ["stats"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/stats");
+      const res = await fetch("https://truebond-matrimony.vercel.app/stats");
       return res.json();
     },
   });

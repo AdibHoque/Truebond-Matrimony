@@ -52,7 +52,9 @@ const routes = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({params}) =>
-          fetch(`http://localhost:5000/biodatas?id=${params.id}`),
+          fetch(
+            `https://truebond-matrimony.vercel.app/biodatas?id=${params.id}`
+          ),
       },
       {
         path: "/checkout/:id",
@@ -62,7 +64,9 @@ const routes = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({params}) =>
-          fetch(`http://localhost:5000/biodatas?id=${params.id}`),
+          fetch(
+            `https://truebond-matrimony.vercel.app/biodatas?id=${params.id}`
+          ),
       },
     ],
   },

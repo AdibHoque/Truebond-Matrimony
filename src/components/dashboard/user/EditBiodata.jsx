@@ -15,7 +15,7 @@ export default function EditBiodata() {
   const [userBiodata, setUserBiodata] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:5000/biodatas?email=${user.email}`)
+    fetch(`https://truebond-matrimony.vercel.app/biodatas?email=${user.email}`)
       .then((data) => data.json())
       .then((data) => setUserBiodata(data));
   }, []);
@@ -65,7 +65,7 @@ export default function EditBiodata() {
         mobileNumber: mobilenumber,
         premium: userBiodata.premium,
       };
-      fetch("http://localhost:5000/biodatas", {
+      fetch("https://truebond-matrimony.vercel.app/biodatas", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -109,7 +109,7 @@ export default function EditBiodata() {
       premium: false,
     };
     console.log(obj);
-    fetch("http://localhost:5000/biodatas", {
+    fetch("https://truebond-matrimony.vercel.app/biodatas", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -66,7 +66,7 @@ export default function Dashboard() {
     enabled: !loading,
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/users?email=${user.email}`
+        `https://truebond-matrimony.vercel.app/users?email=${user.email}`
       );
       return res.json();
     },

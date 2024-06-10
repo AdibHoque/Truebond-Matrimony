@@ -30,12 +30,15 @@ export default function MyContactRequest() {
       confirmButtonText: "Delete",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/contactrequests/delete/${_id}`, {
-          method: "DELETE",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+        fetch(
+          `https://truebond-matrimony.vercel.app/contactrequests/delete/${_id}`,
+          {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
         MySwal.fire({
           title: "Successfully Approved!",
           text: "The Biodata is approved to be seen by Requester.",
@@ -57,7 +60,7 @@ export default function MyContactRequest() {
     queryKey: ["mycontacts"],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/contactrequests?email=${user.email}`
+        `https://truebond-matrimony.vercel.app/contactrequests?email=${user.email}`
       );
       return res.json();
     },

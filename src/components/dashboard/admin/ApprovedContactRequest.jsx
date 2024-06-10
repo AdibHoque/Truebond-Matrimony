@@ -29,12 +29,15 @@ export default function ApprovedContactRequest() {
       confirmButtonText: "Approve",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/contactrequests/approve/${_id}`, {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+        fetch(
+          `https://truebond-matrimony.vercel.app/contactrequests/approve/${_id}`,
+          {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
         refetch();
         MySwal.fire({
           title: "Successfully Approved!",
@@ -55,7 +58,9 @@ export default function ApprovedContactRequest() {
   } = useQuery({
     queryKey: ["mycontacts"],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/contactrequests`);
+      const res = await fetch(
+        `https://truebond-matrimony.vercel.app/contactrequests`
+      );
       return res.json();
     },
   });

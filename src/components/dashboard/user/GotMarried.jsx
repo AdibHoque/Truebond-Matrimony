@@ -17,7 +17,7 @@ export default function GotMarriedDashboard() {
   const [userBiodata, setUserBiodata] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:5000/biodatas?email=${user.email}`)
+    fetch(`https://truebond-matrimony.vercel.app/biodatas?email=${user.email}`)
       .then((data) => data.json())
       .then((data) => setUserBiodata(data));
   }, [user.email]);
@@ -39,7 +39,7 @@ export default function GotMarriedDashboard() {
       reviewRating: 5.0,
       marriageDate: formattedDate,
     };
-    fetch("http://localhost:5000/marriedstory", {
+    fetch("https://truebond-matrimony.vercel.app/marriedstory", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

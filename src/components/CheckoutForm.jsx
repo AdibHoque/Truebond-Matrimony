@@ -20,7 +20,7 @@ export default function CheckoutForm() {
 
   useEffect(() => {
     const obj = {price: price};
-    fetch("http://localhost:5000/create-payment-intent", {
+    fetch("https://truebond-matrimony.vercel.app/create-payment-intent", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -88,7 +88,7 @@ export default function CheckoutForm() {
           mobileNumber: userData.mobileNumber,
           status: "pending",
         };
-        fetch("http://localhost:5000/contactrequests", {
+        fetch("https://truebond-matrimony.vercel.app/contactrequests", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -101,7 +101,7 @@ export default function CheckoutForm() {
           .catch((error) => {
             console.log(error);
           });
-        fetch("http://localhost:5000/revenue", {
+        fetch("https://truebond-matrimony.vercel.app/revenue", {
           method: "PATCH",
           headers: {
             "Content-Type": "application/json",
