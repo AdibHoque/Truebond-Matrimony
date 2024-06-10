@@ -18,6 +18,7 @@ import Checkout from "./pages/Checkout";
 import MyContactRequest from "./components/dashboard/user/MyContactRequest";
 import ApprovedContactRequest from "./components/dashboard/admin/ApprovedContactRequest";
 import ApprovedPremium from "./components/dashboard/admin/ApprovedPremium";
+import AdminRoute from "./AdminRoute";
 
 const routes = createBrowserRouter([
   {
@@ -114,33 +115,41 @@ const routes = createBrowserRouter([
       {
         path: "manageusers",
         element: (
-          <PrivateRoute>
-            <ManageUsers></ManageUsers>
-          </PrivateRoute>
+          <AdminRoute>
+            <PrivateRoute>
+              <ManageUsers></ManageUsers>
+            </PrivateRoute>
+          </AdminRoute>
         ),
       },
       {
         path: "admindashboard",
         element: (
-          <PrivateRoute>
-            <AdminDashboard></AdminDashboard>
-          </PrivateRoute>
+          <AdminRoute>
+            <PrivateRoute>
+              <AdminDashboard></AdminDashboard>
+            </PrivateRoute>
+          </AdminRoute>
         ),
       },
       {
         path: "approvedcontactrequest",
         element: (
-          <PrivateRoute>
-            <ApprovedContactRequest></ApprovedContactRequest>
-          </PrivateRoute>
+          <AdminRoute>
+            <PrivateRoute>
+              <ApprovedContactRequest></ApprovedContactRequest>
+            </PrivateRoute>
+          </AdminRoute>
         ),
       },
       {
         path: "approvedpremium",
         element: (
-          <PrivateRoute>
-            <ApprovedPremium></ApprovedPremium>
-          </PrivateRoute>
+          <AdminRoute>
+            <PrivateRoute>
+              <ApprovedPremium></ApprovedPremium>
+            </PrivateRoute>
+          </AdminRoute>
         ),
       },
     ],

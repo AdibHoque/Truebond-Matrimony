@@ -8,6 +8,7 @@ import {
   Chip,
   Drawer,
   IconButton,
+  Spinner,
 } from "@material-tailwind/react";
 import {useContext, useEffect, useState} from "react";
 import {
@@ -33,10 +34,10 @@ import {
   useNavigate,
 } from "react-router-dom";
 import {AuthContext} from "../AuthProvider";
+import {useQuery} from "@tanstack/react-query";
 
 export default function Dashboard() {
-  const {user, logOut} = useContext(AuthContext);
-  const isAdmin = true;
+  const {user, loading, logOut} = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -44,7 +45,7 @@ export default function Dashboard() {
     if (user && location.pathname == "/dashboard") {
       navigate("/dashboard/home");
     }
-  }, [user, navigate, isAdmin, location]);
+  }, [user, navigate, location]);
   const navClass = ({isActive, isPending}) =>
     isPending || isActive ? "text-purple-500" : "";
   const [open, setOpen] = useState(window.innerWidth >= 960 ? false : true);
@@ -60,10 +61,28 @@ export default function Dashboard() {
     );
   }, []);
 
+  const {data: Admin, isPending: isAdminLoading} = useQuery({
+    queryKey: [user?.email, "Admin"],
+    enabled: !loading,
+    queryFn: async () => {
+      const res = await fetch(
+        `http://localhost:5000/users?email=${user.email}`
+      );
+      return res.json();
+    },
+  });
+  if (isAdminLoading) {
+    return (
+      <div className="flex justify-center items-center h-screen w-full">
+        <Spinner className="size-24" color="purple" />
+      </div>
+    );
+  }
+
   return (
     <>
       <div className="flex">
-        {user && isAdmin ? (
+        {user && Admin.role == "admin" ? (
           open ? (
             <IconButton
               variant="text"
