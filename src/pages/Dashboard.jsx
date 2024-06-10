@@ -160,6 +160,14 @@ export default function Dashboard() {
                     Approved Contact Request
                   </ListItem>
                 </NavLink>
+                <NavLink to="successstories" className={navClass}>
+                  <ListItem>
+                    <ListItemPrefix>
+                      <FaHeart className="w-5 h-5" />
+                    </ListItemPrefix>
+                    Success Stories
+                  </ListItem>
+                </NavLink>
 
                 <ListItem onClick={logOut}>
                   <ListItemPrefix>
@@ -185,6 +193,7 @@ export default function Dashboard() {
                     Biodatas
                   </ListItem>
                 </Link>
+
                 {/* <NavLink to="/editbiodata" className={navClass}>
            
            </NavLink> */}
@@ -268,7 +277,14 @@ export default function Dashboard() {
                   Favourites Biodata
                 </ListItem>
               </NavLink>
-
+              <NavLink to="gotmarried" className={navClass}>
+                <ListItem>
+                  <ListItemPrefix>
+                    <FaHeart className="w-5 h-5" />
+                  </ListItemPrefix>
+                  Got Married
+                </ListItem>
+              </NavLink>
               <ListItem onClick={logOut}>
                 <ListItemPrefix>
                   <FaPowerOff className="w-5 h-5" />

@@ -80,7 +80,9 @@ export default function AdminDashboard() {
           <h3 className="uppercase font-semibold text-3xl text-blue-gray-900">
             REVENUE
           </h3>
-          <h1 className="text-5xl font-extrabold text-purple-500">$69.67</h1>
+          <h1 className="text-5xl font-extrabold text-purple-500">
+            ${stats?.revenue}.00
+          </h1>
         </div>
       </div>
     </div>

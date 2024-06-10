@@ -101,6 +101,19 @@ export default function CheckoutForm() {
           .catch((error) => {
             console.log(error);
           });
+        fetch("http://localhost:5000/revenue", {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(obj),
+        })
+          .then((res) => {
+            console.log(res);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
         MySwal.fire({
           title: "Transaction Successful!",
           text: `Transaction ID: ${paymentIntent.id} - Wait for an admin to review your request.`,

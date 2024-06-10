@@ -19,6 +19,8 @@ import MyContactRequest from "./components/dashboard/user/MyContactRequest";
 import ApprovedContactRequest from "./components/dashboard/admin/ApprovedContactRequest";
 import ApprovedPremium from "./components/dashboard/admin/ApprovedPremium";
 import AdminRoute from "./AdminRoute";
+import GotMarriedDashboard from "./components/dashboard/user/GotMarried";
+import SuccessStories from "./components/dashboard/admin/SuccessStories";
 
 const routes = createBrowserRouter([
   {
@@ -113,6 +115,14 @@ const routes = createBrowserRouter([
         ),
       },
       {
+        path: "gotmarried",
+        element: (
+          <PrivateRoute>
+            <GotMarriedDashboard></GotMarriedDashboard>
+          </PrivateRoute>
+        ),
+      },
+      {
         path: "manageusers",
         element: (
           <AdminRoute>
@@ -148,6 +158,16 @@ const routes = createBrowserRouter([
           <AdminRoute>
             <PrivateRoute>
               <ApprovedPremium></ApprovedPremium>
+            </PrivateRoute>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "successstories",
+        element: (
+          <AdminRoute>
+            <PrivateRoute>
+              <SuccessStories></SuccessStories>
             </PrivateRoute>
           </AdminRoute>
         ),
