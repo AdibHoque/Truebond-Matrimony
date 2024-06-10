@@ -20,6 +20,7 @@ export default function BioCard({data}) {
     age,
     occupation,
     permanentDivision,
+    profileImage,
     premium,
   } = data;
   return (
@@ -30,10 +31,7 @@ export default function BioCard({data}) {
         color="transparent"
         className="m-0 rounded-none"
       >
-        <img
-          src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80"
-          alt="ui/ux review check"
-        />
+        <img src={profileImage} alt="ui/ux review check" />
       </CardHeader>
       <CardBody>
         <div className="flex justify-between items-center">

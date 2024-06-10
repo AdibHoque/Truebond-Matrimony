@@ -5,16 +5,25 @@ import {
   Typography,
   Button,
 } from "@material-tailwind/react";
-import {useContext} from "react";
+import {useContext, useEffect} from "react";
 import {FaHeart, FaRegHeart} from "react-icons/fa";
 import {PiCrownSimpleFill} from "react-icons/pi";
 import {Link, useLoaderData} from "react-router-dom";
 import MySwal from "sweetalert2";
 import {AuthContext} from "../AuthProvider";
+import {useState} from "react";
 
 export default function BiodataDetails() {
   const {user} = useContext(AuthContext);
   const data = useLoaderData();
+  const [isPremium, setIsPremium] = useState(false);
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/biodatas?email=${user.email}`)
+      .then((data) => data.json())
+      .then((data) => setIsPremium(data.premium));
+  }, [user]);
+
   const {
     _id,
     biodataId,
@@ -65,8 +74,6 @@ export default function BiodataDetails() {
     }
   }
 
-  const isPremium = false;
-
   return (
     <Card className="flex-col items-center justify-center w-full min-h-screen px-4 py-4 lg:flex-row lg:px-24">
       <CardHeader
@@ -75,7 +82,7 @@ export default function BiodataDetails() {
         className="px-4 m-0 mx-auto rounded-r-none lg:w-1/2 lg:h-full"
       >
         <img
-          src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80"
+          src={profileImage}
           alt="card-image"
           className="object-cover w-full h-full"
         />

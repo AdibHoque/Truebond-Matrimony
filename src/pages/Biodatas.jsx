@@ -1,4 +1,4 @@
-import {select, option, Spinner} from "@material-tailwind/react";
+import {select, option, Spinner, Button} from "@material-tailwind/react";
 import BioCard from "../components/Card";
 import {useQuery} from "@tanstack/react-query";
 import CardSkeleton from "../components/CardSkeleton";
@@ -10,6 +10,8 @@ export default function Biodatas() {
   const [genderFilter, setGenderFilter] = useState("");
   const [divisionFilter, setDivisionFilter] = useState("");
   const [filteredData, setFilteredData] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10;
 
   const {
     isPending,
@@ -51,31 +53,34 @@ export default function Biodatas() {
     }
   }, [ageFilter, genderFilter, divisionFilter, biodatas]);
 
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const paginatedData = filteredData.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+
+  const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+
   if (isPending) {
     return (
       <>
         <div className="px-4 lg:px-24 flex flex-col lg:flex-row gap-4 justify-between">
           <div className="lg:h-screen">
             <div className="mt-6 space-y-4 lg:space-y-24">
-              <select variant="outlined" label="Filter By Age" color="purple">
+              <select label="Filter By Age" color="purple">
                 <option>18-24</option>
                 <option>25-31</option>
                 <option>32-39</option>
                 <option>41+</option>
               </select>
-              <select
-                variant="outlined"
-                label="Filter By Gender"
-                color="purple"
-              >
+              <select label="Filter By Gender" color="purple">
                 <option>Male</option>
                 <option>Female</option>
               </select>
-              <select
-                variant="outlined"
-                label="Filter By Division"
-                color="purple"
-              >
+              <select label="Filter By Division" color="purple">
                 <option>Dhaka</option>
                 <option>Chattagram</option>
                 <option>Rangpur</option>
@@ -154,12 +159,27 @@ export default function Biodatas() {
         </div>
         <div className="">
           <div className="grid w-full grid-cols-1 gap-6 px-4 mt-6 md:grid-cols-2 lg:px-24 justify-between">
-            {filteredData.map((data) => (
+            {paginatedData.map((data) => (
               <BioCard key={data.biodataId} data={data}></BioCard>
             ))}
           </div>
+          <div className="flex justify-center mt-4">
+            {Array.from({length: totalPages}, (_, index) => (
+              <Button
+                key={index}
+                className={`px-4 py-2 mx-1 ${
+                  currentPage === index + 1
+                    ? "bg-purple-500 text-white"
+                    : "bg-gray-600"
+                } rounded`}
+                onClick={() => handlePageChange(index + 1)}
+              >
+                {index + 1}
+              </Button>
+            ))}
+          </div>
         </div>
-        {filteredData.length == 0 ? (
+        {filteredData.length === 0 ? (
           <div className="text-center flex justify-center items-center mx-auto">
             <h3 className="font-medium text-3xl">No Results Found</h3>
           </div>
