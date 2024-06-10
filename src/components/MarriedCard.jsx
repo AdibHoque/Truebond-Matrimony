@@ -8,11 +8,17 @@ import {
   Tooltip,
   IconButton,
 } from "@material-tailwind/react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import {useEffect} from "react";
 
 export function MarriedCard({data}) {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   const {successStory, marriageDate, reviewRating, coupleImage} = data;
   return (
-    <Card className="w-full max-w-[26rem] mx-auto my-1">
+    <Card data-aos="fade" className="w-full max-w-[26rem] mx-auto my-1">
       <CardHeader floated={false} color="blue-gray">
         <img src={coupleImage} alt="ui/ux review check" />
         <div className="to-bg-black-10 absolute inset-0 h-full w-full bg-gradient-to-tr from-transparent via-transparent to-black/60 " />

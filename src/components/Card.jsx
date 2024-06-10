@@ -10,8 +10,14 @@ import {
 } from "@material-tailwind/react";
 import {PiCrownSimpleFill} from "react-icons/pi";
 import {Link} from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import {useEffect} from "react";
 
 export default function BioCard({data}) {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   const {
     _id,
     name,
@@ -24,7 +30,7 @@ export default function BioCard({data}) {
     premium,
   } = data;
   return (
-    <Card className="max-w-[24rem] overflow-hidden mx-auto">
+    <Card data-aos="fade-up" className="max-w-[24rem] overflow-hidden mx-auto">
       <CardHeader
         floated={false}
         shadow={false}

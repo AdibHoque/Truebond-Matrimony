@@ -6,11 +6,11 @@ import SectionTitle from "../../SectionTitle";
 export default function UserHome() {
   const {user} = useContext(AuthContext);
   return (
-    <div className="flex flex-col p-10 gap-y-10">
+    <div className="flex flex-col p-2 lg:p-10 gap-y-10 mt-10">
       <SectionTitle title="Welcome to your dashboard"></SectionTitle>
 
-      <div className="flex">
-        <div className="flex items-center justify-center gap-2">
+      <div className="flex flex-wrap">
+        <div className="flex items-center justify-center flex-wrap gap-2">
           <Badge placement="top-end" color="green" withBorder>
             <Avatar
               src={

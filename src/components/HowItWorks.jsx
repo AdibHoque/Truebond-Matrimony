@@ -1,12 +1,21 @@
 import {Typography} from "@material-tailwind/react";
 import SectionTitle from "./SectionTitle";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import {useEffect} from "react";
 
 export default function HowItWorks() {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
     <>
       <SectionTitle title="How It Works"></SectionTitle>
       <div className="grid grid-cols-1 px-4 mb-6 lg:grid-cols-3 lg:px-24">
-        <div className="flex flex-col items-center justify-center">
+        <div
+          data-aos="fade-up"
+          className="flex flex-col items-center justify-center"
+        >
           <img src="/Signup-rafiki.svg" className="-mt-6 max-w-96" alt="" />
           <h1 className="-mt-12 text-3xl font-bold text-purple-500">
             Create a Profile
@@ -20,7 +29,10 @@ export default function HowItWorks() {
             preferences, and uploading photos.
           </Typography>
         </div>
-        <div className="flex flex-col items-center justify-center">
+        <div
+          data-aos="fade-up"
+          className="flex flex-col items-center justify-center"
+        >
           <img src="/connect-rafiki.svg" className="-mt-6 max-w-96" alt="" />
           <h1 className="-mt-12 text-3xl font-bold text-purple-500">
             Search & Connect
@@ -34,7 +46,10 @@ export default function HowItWorks() {
             occupation, etc then connect with them.
           </Typography>
         </div>
-        <div className="flex flex-col items-center justify-center">
+        <div
+          data-aos="fade-up"
+          className="flex flex-col items-center justify-center"
+        >
           <img src="/face-rafiki.svg" className="-mt-6 max-w-96" alt="" />
           <h1 className="-mt-12 text-3xl font-bold text-purple-500">
             Arrange Meetings
