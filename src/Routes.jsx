@@ -17,6 +17,7 @@ import AdminDashboard from "./components/dashboard/admin/AdmnDashboard";
 import Checkout from "./pages/Checkout";
 import MyContactRequest from "./components/dashboard/user/MyContactRequest";
 import ApprovedContactRequest from "./components/dashboard/admin/ApprovedContactRequest";
+import ApprovedPremium from "./components/dashboard/admin/ApprovedPremium";
 
 const routes = createBrowserRouter([
   {
@@ -131,6 +132,14 @@ const routes = createBrowserRouter([
         element: (
           <PrivateRoute>
             <ApprovedContactRequest></ApprovedContactRequest>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "approvedpremium",
+        element: (
+          <PrivateRoute>
+            <ApprovedPremium></ApprovedPremium>
           </PrivateRoute>
         ),
       },

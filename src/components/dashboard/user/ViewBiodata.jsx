@@ -28,7 +28,7 @@ export default function ViewBiodata() {
           email: userBiodata.contactEmail,
           name: userBiodata.name,
         };
-        fetch("http://localhost:5000/requestpremium", {
+        fetch("http://localhost:5000/premiumrequests", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -335,6 +335,10 @@ export default function ViewBiodata() {
           </div>
         </form>
         {userBiodata.premium ? (
+          <Button className="mt-4" color="purple" fullWidth disabled>
+            Request to Make Biodata Premium
+          </Button>
+        ) : !userBiodata.biodataId ? (
           <Button className="mt-4" color="purple" fullWidth disabled>
             Request to Make Biodata Premium
           </Button>
