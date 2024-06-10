@@ -58,7 +58,7 @@ export default function SuccessStories() {
     <>
       <div className="flex flex-col w-full">
         <div className="my-6">
-          <SectionTitle title="Approve Premium Request"></SectionTitle>
+          <SectionTitle title="Success Stories"></SectionTitle>
         </div>
 
         <Card className="h-full w-full overflow-scroll">

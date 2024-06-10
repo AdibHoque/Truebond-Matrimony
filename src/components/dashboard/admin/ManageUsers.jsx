@@ -101,7 +101,7 @@ export default function ManageUsers() {
     <>
       <div className="flex flex-col w-full">
         <div className="my-6">
-          <SectionTitle title="Favorites"></SectionTitle>
+          <SectionTitle title="Manage Users"></SectionTitle>
         </div>
 
         <Card className="h-full w-full overflow-scroll">
