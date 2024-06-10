@@ -15,6 +15,8 @@ import ViewBiodata from "./components/dashboard/user/ViewBiodata";
 import ManageUsers from "./components/dashboard/admin/ManageUsers";
 import AdminDashboard from "./components/dashboard/admin/AdmnDashboard";
 import Checkout from "./pages/Checkout";
+import MyContactRequest from "./components/dashboard/user/MyContactRequest";
+import ApprovedContactRequest from "./components/dashboard/admin/ApprovedContactRequest";
 
 const routes = createBrowserRouter([
   {
@@ -101,6 +103,14 @@ const routes = createBrowserRouter([
         ),
       },
       {
+        path: "mycontactrequest",
+        element: (
+          <PrivateRoute>
+            <MyContactRequest></MyContactRequest>
+          </PrivateRoute>
+        ),
+      },
+      {
         path: "manageusers",
         element: (
           <PrivateRoute>
@@ -113,6 +123,14 @@ const routes = createBrowserRouter([
         element: (
           <PrivateRoute>
             <AdminDashboard></AdminDashboard>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "approvedcontactrequest",
+        element: (
+          <PrivateRoute>
+            <ApprovedContactRequest></ApprovedContactRequest>
           </PrivateRoute>
         ),
       },

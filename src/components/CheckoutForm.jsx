@@ -15,7 +15,7 @@ export default function CheckoutForm() {
   const [clientSecret, setClientSecret] = useState("");
   const [transactionId, setTransactionId] = useState("");
   const navigate = useNavigate();
-  const {biodataId} = useLoaderData();
+  const userData = useLoaderData();
   const price = 5;
 
   useEffect(() => {
@@ -80,6 +80,33 @@ export default function CheckoutForm() {
       if (paymentIntent.status === "succeeded") {
         console.log("transaction id", paymentIntent.id);
         setTransactionId(paymentIntent.id);
+        const obj = {
+          requesterEmail: user.email,
+          biodataId: userData.biodataId,
+          name: userData.name,
+          contactEmail: userData.contactEmail,
+          mobileNumber: userData.mobileNumber,
+          status: "pending",
+        };
+        fetch("http://localhost:5000/contactrequests", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(obj),
+        })
+          .then((res) => {
+            console.log(res);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+        MySwal.fire({
+          title: "Transaction Successful!",
+          text: `Transaction ID: ${paymentIntent.id} - Wait for an admin to review your request.`,
+          icon: "success",
+        });
+        navigate("/dashboard/mycontactrequest");
       }
     }
   };
@@ -99,7 +126,7 @@ export default function CheckoutForm() {
             readOnly
             disabled
             type="email"
-            value={biodataId}
+            value={userData.biodataId}
             placeholder="name@mail.com"
             className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
             labelProps={{
