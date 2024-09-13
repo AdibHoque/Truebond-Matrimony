@@ -3,8 +3,6 @@ import BioCard from "../components/Card";
 import {useQuery} from "@tanstack/react-query";
 import CardSkeleton from "../components/CardSkeleton";
 import {useEffect, useState} from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
 
 export default function Biodatas() {
   const skeletons = Array.from({length: 20});
@@ -13,7 +11,7 @@ export default function Biodatas() {
   const [divisionFilter, setDivisionFilter] = useState("");
   const [filteredData, setFilteredData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 10;
+  const itemsPerPage = 9;
 
   const {
     isPending,
@@ -54,9 +52,6 @@ export default function Biodatas() {
       setFilteredData(filtered);
     }
   }, [ageFilter, genderFilter, divisionFilter, biodatas]);
-  useEffect(() => {
-    AOS.init();
-  }, []);
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);

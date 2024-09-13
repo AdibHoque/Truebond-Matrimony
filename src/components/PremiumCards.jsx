@@ -22,8 +22,8 @@ export default function PremiumCards() {
   });
   if (isPending) {
     return (
-      <div className="w-full h-96 flex justify-center items-center">
-        <Spinner color="purple" className="h-16 w-16" />
+      <div className="flex items-center justify-center w-full h-96">
+        <Spinner color="purple" className="w-16 h-16" />
       </div>
     );
   }
@@ -44,20 +44,20 @@ export default function PremiumCards() {
   const data = sortData(premiumBiodatas.slice(0, 6), filter);
 
   return (
-    <div className="my-6  px-4 lg:px-24">
+    <div className="px-8 my-6 lg:px-24">
       <SectionTitle title="Premium Members"></SectionTitle>
       <div className="w-32 mt-2">
         <Select
           onChange={() => setFilter(filter === "asc" ? "desc" : "asc")}
           variant="outlined"
-          label="Filter By Age"
+          label="Sort"
           color="purple"
         >
           <Option defaultChecked>Age - Ascending</Option>
           <Option>Age - Descending</Option>
         </Select>
       </div>
-      <div className="grid w-full grid-cols-1 gap-4 gap-y-6 mt-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid w-full grid-cols-1 gap-4 mt-6 gap-y-6 md:grid-cols-2 lg:grid-cols-3">
         {data.map((data) => (
           <BioCard key={data._id} data={data}></BioCard>
         ))}

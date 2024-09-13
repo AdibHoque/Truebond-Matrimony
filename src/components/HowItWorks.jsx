@@ -9,11 +9,12 @@ export default function HowItWorks() {
     AOS.init();
   }, []);
   return (
-    <>
+    <div>
       <SectionTitle title="How It Works"></SectionTitle>
       <div className="grid grid-cols-1 px-4 mb-6 lg:grid-cols-3 lg:px-24">
         <div
           data-aos="fade-up"
+          data-aos-delay="100"
           className="flex flex-col items-center justify-center"
         >
           <img src="/Signup-rafiki.svg" className="-mt-6 max-w-96" alt="" />
@@ -31,6 +32,7 @@ export default function HowItWorks() {
         </div>
         <div
           data-aos="fade-up"
+          data-aos-delay="200"
           className="flex flex-col items-center justify-center"
         >
           <img src="/connect-rafiki.svg" className="-mt-6 max-w-96" alt="" />
@@ -48,6 +50,7 @@ export default function HowItWorks() {
         </div>
         <div
           data-aos="fade-up"
+          data-aos-delay="300"
           className="flex flex-col items-center justify-center"
         >
           <img src="/face-rafiki.svg" className="-mt-6 max-w-96" alt="" />
@@ -64,6 +67,6 @@ export default function HowItWorks() {
           </Typography>
         </div>
       </div>
-    </>
+    </div>
   );
 }

@@ -9,6 +9,7 @@ import {
 } from "@material-tailwind/react";
 import {Link, NavLink} from "react-router-dom";
 import {AuthContext} from "../AuthProvider";
+import {PiCrownSimpleFill} from "react-icons/pi";
 
 export default function NavBar() {
   const navClass = ({isActive, isPending}) =>
@@ -35,14 +36,19 @@ export default function NavBar() {
         </NavLink>
       </li>
       <li>
-        <NavLink className={navClass} to="/about">
-          About Us
+        <NavLink className={navClass} to="/premium">
+          <h5 className="flex items-center gap-1">
+            <PiCrownSimpleFill /> Members
+          </h5>
         </NavLink>
       </li>
 
       <li>
-        <NavLink className={navClass} to="/contact">
-          Contact Us
+        <NavLink className={navClass} to="/upgrade">
+          <h5 className="flex items-center gap-1">
+            <PiCrownSimpleFill className="peer-hover:text-purple-500" />
+            <h1>Upgrade</h1>
+          </h5>
         </NavLink>
       </li>
     </ul>
@@ -52,14 +58,22 @@ export default function NavBar() {
   return (
     <Navbar className="w-full px-4 mx-auto lg:px-8">
       <div className="container flex items-center justify-between mx-auto text-blue-gray-900">
-        <Typography
-          as="a"
-          href="#"
-          className="mr-4 cursor-pointer py-1.5 font-bold flex justify-center items-center text-2xl gap-2 text-purple-500"
-        >
-          <img src="/couple.png"></img>
-          TrueBond
-        </Typography>
+        <Link to="/">
+          <Typography
+            as="a"
+            href="#"
+            className="mr-4 cursor-pointer py-1.5 font-bold flex justify-center items-center text-xl md:text-2xl gap-2 text-purple-500"
+          >
+            <img src="/couple.png"></img>
+            <div className="flex flex-col items-center justify-center">
+              TrueBond<br></br>
+              <span className="-mt-2 text-sm font-normal tracking-widest text-black md:-mt-3 md:text-lg">
+                Matrimony
+              </span>
+            </div>
+          </Typography>
+        </Link>
+
         <div className="hidden lg:block">{navList}</div>
 
         <div className="flex items-center gap-x-1">

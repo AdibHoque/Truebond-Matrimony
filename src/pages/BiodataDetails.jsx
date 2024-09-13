@@ -75,7 +75,7 @@ export default function BiodataDetails() {
   }
 
   return (
-    <Card className="flex-col items-center justify-center w-full min-h-screen px-4 py-4 lg:flex-row lg:px-24">
+    <Card className="flex-col items-center justify-center w-full min-h-screen py-4 md:px-4 lg:flex-row lg:px-24">
       <CardHeader
         shadow={false}
         floated={false}
@@ -88,7 +88,7 @@ export default function BiodataDetails() {
         />
       </CardHeader>
       <CardBody>
-        <div className="flex justify-between items-center">
+        <div className="flex items-center justify-between">
           <Typography variant="h3" color="purple">
             {name}
           </Typography>
@@ -97,7 +97,7 @@ export default function BiodataDetails() {
               variant="gradient"
               color="purple"
               size="sm"
-              className="flex  items-center gap-3"
+              className="flex items-center gap-3"
             >
               <PiCrownSimpleFill />
               PREMIUM

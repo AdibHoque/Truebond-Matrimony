@@ -1,9 +1,9 @@
 import {FaFemale, FaMale} from "react-icons/fa";
 import SectionTitle from "./SectionTitle";
 import {FaDatabase, FaHeartCirclePlus} from "react-icons/fa6";
-import {CgSpinner} from "react-icons/cg";
 import {Spinner} from "@material-tailwind/react";
 import {useQuery} from "@tanstack/react-query";
+import CountUp from "react-countup";
 
 export default function SuccessCounter() {
   const {
@@ -21,7 +21,7 @@ export default function SuccessCounter() {
 
   if (isPending) {
     return (
-      <div className="flex justify-center items-center h-screen w-full">
+      <div className="flex items-center justify-center w-full h-screen">
         <Spinner className="size-24" color="purple" />
       </div>
     );
@@ -32,49 +32,65 @@ export default function SuccessCounter() {
 
   return (
     <>
-      <div className="my-12 px-4 lg:px-24">
+      <div className="px-4 my-12 lg:px-24">
         <SectionTitle title="Success Counter"></SectionTitle>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 my-8 gap-4 gap-y-10 lg:divide-x-2">
-          <div className="flex gap-4 justify-center items-center">
+        <div className="grid grid-cols-1 gap-4 my-8 md:grid-cols-2 lg:grid-cols-4 gap-y-10 lg:divide-x-2">
+          <div className="flex items-center justify-center gap-4">
             <FaDatabase className="text-6xl text-blue-gray-900" />
-            <div className="flex flex-col justify-center items-center">
+            <div className="flex flex-col items-center justify-center">
               <h1 className="text-5xl font-extrabold text-purple-500">
-                {stats.totalBiodatas}
+                <CountUp
+                  end={stats.totalBiodatas}
+                  enableScrollSpy={true}
+                  duration={1.5}
+                />
               </h1>
-              <h3 className="uppercase font-semibold text-blue-gray-900">
+              <h3 className="font-semibold uppercase text-blue-gray-900">
                 Total BioDatas
               </h3>
             </div>
           </div>
-          <div className="flex gap-4 justify-center items-center">
+          <div className="flex items-center justify-center gap-4">
             <FaMale className="text-6xl text-blue-gray-900" />
-            <div className="flex flex-col justify-center items-center">
+            <div className="flex flex-col items-center justify-center">
               <h1 className="text-5xl font-extrabold text-blue-500">
-                {stats.maleBiodatas}
+                <CountUp
+                  end={stats.maleBiodatas}
+                  enableScrollSpy={true}
+                  duration={1.5}
+                />
               </h1>
-              <h3 className="uppercase font-semibold text-blue-gray-900">
+              <h3 className="font-semibold uppercase text-blue-gray-900">
                 Male BioDatas
               </h3>
             </div>
           </div>
-          <div className="flex gap-4 justify-center items-center">
+          <div className="flex items-center justify-center gap-4">
             <FaFemale className="text-6xl text-blue-gray-900" />
-            <div className="flex flex-col justify-center items-center">
+            <div className="flex flex-col items-center justify-center">
               <h1 className="text-5xl font-extrabold text-pink-500">
-                {stats.femaleBiodatas}
+                <CountUp
+                  end={stats.femaleBiodatas}
+                  enableScrollSpy={true}
+                  duration={1.5}
+                />
               </h1>
-              <h3 className="uppercase font-semibold text-blue-gray-900">
+              <h3 className="font-semibold uppercase text-blue-gray-900">
                 Female BioDatas
               </h3>
             </div>
           </div>
-          <div className="flex gap-4 justify-center items-center">
+          <div className="flex items-center justify-center gap-4">
             <FaHeartCirclePlus className="text-6xl text-blue-gray-900" />
-            <div className="flex flex-col justify-center items-center">
+            <div className="flex flex-col items-center justify-center">
               <h1 className="text-5xl font-extrabold text-purple-500">
-                {stats.marriages}
+                <CountUp
+                  end={stats.marriages}
+                  enableScrollSpy={true}
+                  duration={1.5}
+                />
               </h1>
-              <h3 className="uppercase font-semibold text-blue-gray-900">
+              <h3 className="font-semibold uppercase text-blue-gray-900">
                 Marriages
               </h3>
             </div>
