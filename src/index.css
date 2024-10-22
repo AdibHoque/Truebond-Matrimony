@@ -19,7 +19,7 @@
   left: 0;
   width: 0;
   height: 3px;
-  background: purple;
+  background: #800080;
   transition: 0.5s;
 }
 .links:hover::before {

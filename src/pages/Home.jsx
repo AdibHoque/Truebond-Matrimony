@@ -8,9 +8,8 @@ import SuccessCounter from "../components/SuccessCounter";
 export default function Home() {
   return (
     <div className="space-y-16">
-      <div className="">
-        <Hero></Hero>
-      </div>
+      <Hero></Hero>
+
       <PremiumCards></PremiumCards>
       <HowItWorks></HowItWorks>
       <SuccessCounter></SuccessCounter>

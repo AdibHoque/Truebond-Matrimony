@@ -9,9 +9,9 @@ export default function HowItWorks() {
     AOS.init();
   }, []);
   return (
-    <div>
+    <div className="min-h-screen flex flex-col justify-center items-center">
       <SectionTitle title="How It Works"></SectionTitle>
-      <div className="grid grid-cols-1 px-4 mb-6 lg:grid-cols-3 lg:px-24">
+      <div className="grid grid-cols-1 px-4 mb-6 lg:grid-cols-3 max-w-6xl mx-auto ">
         <div
           data-aos="fade-up"
           data-aos-delay="100"

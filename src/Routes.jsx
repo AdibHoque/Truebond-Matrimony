@@ -21,6 +21,8 @@ import ApprovedPremium from "./components/dashboard/admin/ApprovedPremium";
 import AdminRoute from "./AdminRoute";
 import GotMarriedDashboard from "./components/dashboard/user/GotMarried";
 import SuccessStories from "./components/dashboard/admin/SuccessStories";
+import Upgrade from "./pages/Upgrade";
+import Premium from "./pages/PremiumBiodatas";
 
 const routes = createBrowserRouter([
   {
@@ -56,17 +58,23 @@ const routes = createBrowserRouter([
             `https://truebond-matrimony.vercel.app/biodatas?id=${params.id}`
           ),
       },
+      {path: "/premium", element: <Premium></Premium>},
+
       {
-        path: "/checkout/:id",
+        path: "/upgrade",
+        element: (
+          <PrivateRoute>
+            <Upgrade></Upgrade>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/upgrade/checkout",
         element: (
           <PrivateRoute>
             <Checkout></Checkout>
           </PrivateRoute>
         ),
-        loader: ({params}) =>
-          fetch(
-            `https://truebond-matrimony.vercel.app/biodatas?id=${params.id}`
-          ),
       },
     ],
   },

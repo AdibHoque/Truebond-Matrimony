@@ -8,7 +8,7 @@ import {
 import {useContext, useEffect} from "react";
 import {FaHeart, FaRegHeart} from "react-icons/fa";
 import {PiCrownSimpleFill} from "react-icons/pi";
-import {Link, useLoaderData} from "react-router-dom";
+import {Link, useLoaderData, useNavigate} from "react-router-dom";
 import MySwal from "sweetalert2";
 import {AuthContext} from "../AuthProvider";
 import {useState} from "react";
@@ -17,6 +17,7 @@ export default function BiodataDetails() {
   const {user} = useContext(AuthContext);
   const data = useLoaderData();
   const [isPremium, setIsPremium] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`https://truebond-matrimony.vercel.app/biodatas?email=${user.email}`)
@@ -73,6 +74,49 @@ export default function BiodataDetails() {
       });
     }
   }
+
+  const handleContactReq = () => {
+    MySwal.fire({
+      title: "Request Information?",
+      text: "An Admin will soon review your request after your request.",
+      icon: "info",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Request",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const obj = {
+          requesterEmail: user.email,
+          biodataId: data.biodataId,
+          name: data.name,
+          contactEmail: data.contactEmail,
+          mobileNumber: data.mobileNumber,
+          status: "pending",
+        };
+        fetch("https://truebond-matrimony.vercel.app/contactrequests", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(obj),
+        })
+          .then((res) => {
+            console.log(res);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+
+        MySwal.fire({
+          title: "Request Successful!",
+          text: `Wait for an admin to review your request.`,
+          icon: "success",
+        });
+        navigate("/dashboard/mycontactrequest");
+      } else return;
+    });
+  };
 
   return (
     <Card className="flex-col items-center justify-center w-full min-h-screen py-4 md:px-4 lg:flex-row lg:px-24">
@@ -214,7 +258,7 @@ export default function BiodataDetails() {
             </div>
           </div>
         ) : (
-          <Link to={`/checkout/${_id}`} className="inline-block mt-4 mr-2">
+          <a onClick={handleContactReq} className="inline-block mt-4 mr-2">
             <Button
               variant="outlined"
               color="purple"
@@ -236,7 +280,7 @@ export default function BiodataDetails() {
                 />
               </svg>
             </Button>
-          </Link>
+          </a>
         )}
         <a className="inline-block mt-4">
           <Button

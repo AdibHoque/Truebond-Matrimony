@@ -52,40 +52,38 @@ export default function GotMarried() {
   }
 
   return (
-    <>
-      <div className="my-8 px-4 lg:px-24">
-        <SectionTitle title="Success Story"></SectionTitle>
-        <div className="">
-          <Swiper
-            slidesPerView={1}
-            spaceBetween={30}
-            color=""
-            pagination={{
-              clickable: true,
-            }}
-            autoplay={true}
-            modules={[Pagination]}
-            breakpoints={{
-              640: {
-                slidesPerView: 1, // 1 slide per view at >= 640px
-              },
-              768: {
-                slidesPerView: 2, // 2 slides per view at >= 768px
-              },
-              1024: {
-                slidesPerView: 3, // 3 slides per view at >= 1024px
-              },
-            }}
-            className="mySwiper"
-          >
-            {sortedData.map((data) => (
-              <SwiperSlide key={Math.random * 9999999}>
-                <MarriedCard data={data}></MarriedCard>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
+    <div className="my-12 px-4 max-w-6xl mx-auto space-y-6">
+      <SectionTitle title="Success Story"></SectionTitle>
+      <div className="">
+        <Swiper
+          slidesPerView={1}
+          spaceBetween={30}
+          color=""
+          pagination={{
+            clickable: true,
+          }}
+          autoplay={true}
+          modules={[Pagination]}
+          breakpoints={{
+            640: {
+              slidesPerView: 1, // 1 slide per view at >= 640px
+            },
+            768: {
+              slidesPerView: 2, // 2 slides per view at >= 768px
+            },
+            1024: {
+              slidesPerView: 3, // 3 slides per view at >= 1024px
+            },
+          }}
+          className="mySwiper"
+        >
+          {sortedData.map((data, index) => (
+            <SwiperSlide key={Math.random * 9999999}>
+              <MarriedCard index={index} data={data}></MarriedCard>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
-    </>
+    </div>
   );
 }

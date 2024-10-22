@@ -30,7 +30,7 @@ export default function BioCard({data}) {
     premium,
   } = data;
   return (
-    <Card data-aos="fade-up" className="max-w-[24rem] overflow-hidden mx-auto">
+    <Card data-aos="fade" className="max-w-[24rem] overflow-hidden mx-auto">
       <CardHeader
         floated={false}
         shadow={false}

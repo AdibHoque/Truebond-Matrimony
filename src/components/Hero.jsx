@@ -15,7 +15,7 @@ export default function Hero() {
         className="absolute object-fill w-full h-full max-sm:bg-purple-500 -z-40 opacity-10 -top-0 lg:flex"
         alt=""
       />
-      <div className="flex flex-col-reverse items-center justify-between p-4 py-6 lg:flex-row lg:px-24">
+      <div className="flex flex-col-reverse items-center justify-between p-4 py-6 lg:flex-row max-w-6xl ">
         <div className="space-y-4 text-center lg:text-start lg:pr-28 md:">
           <Typography
             data-aos="fade-right"

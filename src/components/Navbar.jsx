@@ -37,16 +37,17 @@ export default function NavBar() {
       </li>
       <li>
         <NavLink className={navClass} to="/premium">
-          <h5 className="flex items-center gap-1">
-            <PiCrownSimpleFill /> Members
+          <h5 className="flex items-center gap-1 group">
+            <PiCrownSimpleFill className="group-hover:text-[#800080]" />{" "}
+            <span>Members</span>
           </h5>
         </NavLink>
       </li>
 
       <li>
         <NavLink className={navClass} to="/upgrade">
-          <h5 className="flex items-center gap-1">
-            <PiCrownSimpleFill className="peer-hover:text-purple-500" />
+          <h5 className="flex items-center gap-1 group">
+            <PiCrownSimpleFill className="group-hover:text-[#800080]" />
             <h1>Upgrade</h1>
           </h5>
         </NavLink>
@@ -56,7 +57,7 @@ export default function NavBar() {
   const {user, loading} = useContext(AuthContext);
 
   return (
-    <Navbar className="w-full px-4 mx-auto lg:px-8">
+    <Navbar className="w-full max-w-6xl px-4 mx-auto md:px-12">
       <div className="container flex items-center justify-between mx-auto text-blue-gray-900">
         <Link to="/">
           <Typography

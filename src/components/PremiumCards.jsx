@@ -44,7 +44,7 @@ export default function PremiumCards() {
   const data = sortData(premiumBiodatas.slice(0, 6), filter);
 
   return (
-    <div className="px-8 my-6 lg:px-24">
+    <div className="px-8 my-6 max-w-6xl mx-auto">
       <SectionTitle title="Premium Members"></SectionTitle>
       <div className="w-32 mt-2">
         <Select

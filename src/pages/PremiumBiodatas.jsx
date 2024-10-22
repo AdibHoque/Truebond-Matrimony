@@ -8,7 +8,7 @@ import {useEffect, useState} from "react";
 import {FaSearch} from "react-icons/fa";
 import {FaRecycle} from "react-icons/fa6";
 
-export default function Biodatas() {
+export default function Premium() {
   const [search, setSearch] = useState("");
   const [age, setAge] = useState("");
   const [gender, setGender] = useState("");
@@ -20,12 +20,12 @@ export default function Biodatas() {
     isPending,
     isError,
     error,
-    data: biodatas,
+    data: premiumBiodatas,
   } = useQuery({
-    queryKey: ["biodatas", search, age, gender, division, currentP],
+    queryKey: ["premiumBiodatas", search, age, gender, division, currentP],
     queryFn: async () => {
       const res = await fetch(
-        `https://truebond-matrimony.vercel.app/biodatas?page=${currentP}&&search=${search}&&age=${age}&&gender=${gender}&&division=${division}`
+        `https://truebond-matrimony.vercel.app/biodatas?page=${currentP}&&search=${search}&&age=${age}&&gender=${gender}&&division=${division}&&isPremium=true`
       );
       return res.json();
     },
@@ -160,12 +160,12 @@ export default function Biodatas() {
       </div>
 
       <div className="grid justify-between w-full grid-cols-1 gap-6 mt-6 md:grid-cols-2 lg:grid-cols-3">
-        {biodatas.biodatas.map((data) => (
+        {premiumBiodatas.biodatas.map((data) => (
           <BioCard key={data.biodataId} data={data}></BioCard>
         ))}
       </div>
       <div className="flex flex-col items-center justify-center">
-        {biodatas.totalBiodatas > 0 ? (
+        {premiumBiodatas.totalBiodatas > 0 ? (
           <div className="flex items-center justify-center my-6">
             <Button
               size="sm"
@@ -174,21 +174,22 @@ export default function Biodatas() {
               onClick={() =>
                 currentP > 1
                   ? setCurrentP(currentP - 1)
-                  : setCurrentP(biodatas.totalPages)
+                  : setCurrentP(premiumBiodatas.totalPages)
               }
             >
               Previous
             </Button>
             <div className="flex flex-col items-center justify-center gap-0 mx-6">
               <h2 className="">
-                Showing {(biodatas.currentPage - 1) * 9 + 1}-
-                {biodatas.currentPage * 9 > biodatas.totalBiodatas
-                  ? biodatas.totalBiodatas
-                  : biodatas.currentPage * 9}{" "}
-                of {biodatas.totalBiodatas} Results
+                Showing {(premiumBiodatas.currentPage - 1) * 9 + 1}-
+                {premiumBiodatas.currentPage * 9 > premiumBiodatas.totalBiodatas
+                  ? premiumBiodatas.totalBiodatas
+                  : premiumBiodatas.currentPage * 9}{" "}
+                of {premiumBiodatas.totalBiodatas} Results
               </h2>
               <p className="mx-8">
-                Page {biodatas.currentPage} of {biodatas.totalPages}
+                Page {premiumBiodatas.currentPage} of{" "}
+                {premiumBiodatas.totalPages}
               </p>
             </div>
 
@@ -197,7 +198,7 @@ export default function Biodatas() {
               color="purple"
               className="text-white "
               onClick={() =>
-                currentP < biodatas.totalPages
+                currentP < premiumBiodatas.totalPages
                   ? setCurrentP(currentP + 1)
                   : setCurrentP(1)
               }
