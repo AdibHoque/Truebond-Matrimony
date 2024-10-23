@@ -105,7 +105,10 @@ export default function Dashboard() {
               </svg>
             </IconButton>
           ) : (
-            <Card className="z-50 absolute lg:sticky top-0 w-64 h-screen p-4 bg-purple-100 rounded-none shadow-xl shadow-blue-gray-900/5">
+            <Card
+              data-aos="fade"
+              className="z-50 absolute lg:sticky top-0 w-64 h-screen p-4 bg-purple-100 rounded-none shadow-xl shadow-blue-gray-900/5"
+            >
               <div className="p-4 mb-2">
                 <IconButton
                   variant="text"
@@ -222,7 +225,10 @@ export default function Dashboard() {
             </svg>
           </IconButton>
         ) : (
-          <Card className="z-50 absolute lg:sticky top-0 w-64 h-screen p-4 bg-purple-100 rounded-none shadow-xl shadow-blue-gray-900/5">
+          <Card
+            data-aos="fade"
+            className="z-50 absolute lg:sticky top-0 w-64 h-screen p-4 bg-purple-100 rounded-none shadow-xl shadow-blue-gray-900/5"
+          >
             <div className="p-4 mb-2">
               <IconButton
                 variant="text"

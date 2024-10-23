@@ -9,7 +9,7 @@ import {
 
 export default function CardSkeleton() {
   return (
-    <Card className=" w-96 animate-pulse mx-auto">
+    <Card className="max-w-96 w-full animate-pulse mx-auto">
       <CardHeader
         shadow={false}
         floated={false}

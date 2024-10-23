@@ -43,7 +43,7 @@ export default function SuccessCounter() {
   }
 
   return (
-    <div className="max-w-6xl mx-auto space-y-6 my-12">
+    <div className="max-w-6xl mx-auto space-y-6 mb-12">
       <SectionTitle title="Success Counter"></SectionTitle>
       <div className="flex justify-between items-center w-full">
         <div className="grid grid-cols-1 md:grid-cols-2 justify-center items-center gap-6 mx-auto">

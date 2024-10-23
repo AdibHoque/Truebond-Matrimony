@@ -19,10 +19,10 @@ export default function Upgrade() {
   }, [user]);
 
   return (
-    <div className="flex flex-row-reverse h-[82vh] max-w-6xl mx-auto lg:px-10">
+    <div className="flex flex-row-reverse h-[82vh] max-w-6xl mx-auto px-4 lg:px-10">
       <div className="flex flex-col items-center justify-center w-full gap-10">
         <div>
-          <h1 className="flex gap-1 my-6 text-4xl font-bold text-purple-500">
+          <h1 className="flex gap-1 my-6 text-2xl md:text-4xl font-bold text-purple-500">
             <PiCrownSimpleFill /> Premium Membership
           </h1>
           <div className="grid justify-between w-full grid-cols-2 gap-6">
